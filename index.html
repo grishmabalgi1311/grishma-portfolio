@@ -32,6 +32,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
       background: var(--bg);
@@ -51,13 +55,13 @@
       padding: 32px 20px 80px;
     }
 
-    /* HEADER */
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
       background: var(--card);
       border-bottom: 1px solid var(--border);
-      z-index: 10;
+      z-index: 20;
     }
 
     .nav {
@@ -69,6 +73,30 @@
       padding: 12px 20px;
     }
 
+    .nav-left {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
     .toggle {
       cursor: pointer;
       border: 1px solid var(--border);
@@ -76,6 +104,7 @@
       border-radius: 999px;
       font-size: 0.85rem;
       background: var(--card);
+      color: var(--text);
     }
 
     /* HERO */
@@ -181,35 +210,48 @@
         width: 220px;
         height: 220px;
       }
+
+      .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
 
 <body>
+
 <header>
   <div class="nav">
-    <strong>GRISHMA BALGI</strong>
-    <button class="toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+    <div class="nav-left">GRISHMA BALGI</div>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+    </div>
   </div>
 </header>
 
 <main class="page">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div>
       <h1>Grishma Balgi</h1>
       <p>
         MSc Mechatronics & Robotics student focused on designing and manufacturing
         intelligent robotic systems.
       </p>
-      <a href="assets/resume.pdf">Download Resume →</a>
+      <a href="assets/Grishma_Balgi_Resume.pdf" download>Download Resume →</a>
     </div>
     <img src="assets/profilephoto.jpg" alt="Grishma Balgi">
   </section>
 
   <!-- ABOUT -->
-  <section>
+  <section id="about">
     <div class="section-title">About Me</div>
     <div class="card">
       <p>
@@ -222,7 +264,7 @@
   </section>
 
   <!-- EDUCATION -->
-  <section>
+  <section id="education">
     <div class="section-title">Education</div>
     <div class="card">
       <p><strong>MSc Mechatronics & Robotics</strong> — NYU (2025–Present)</p>
@@ -231,7 +273,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section>
+  <section id="projects">
     <div class="section-title">Projects</div>
 
     <div class="project">
@@ -257,11 +299,10 @@
         <div class="tools">MATLAB · Simulink · Python</div>
       </div>
     </div>
-
   </section>
 
   <!-- CONTACT -->
-  <section class="contact">
+  <section id="contact" class="contact">
     <div class="section-title">Get in Touch</div>
     <div class="card">
       <p>
