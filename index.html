@@ -2,36 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Grishma Balgi | Mechatronics & Robotics</title>
+  <title>Grishma Balgi | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     :root {
       --bg: #f5f5f7;
-      --page-max: 1120px;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
 
-      --text-main: #111827;
-      --text-muted: #6b7280;
-
-      --card-bg: #ffffff;
-      --card-border: #e5e7eb;
-
-      --accent: #2563eb;          /* blue accent */
-      --accent-soft: #eff6ff;
-
-      --btn-dark: #111827;
-      --btn-dark-hover: #020617;
-
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
-      --shadow-subtle: 0 10px 25px rgba(15, 23, 42, 0.08);
-
-      --radius-xl: 18px;
-      --radius-lg: 14px;
-      --radius-full: 999px;
-
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont,
-        "SF Pro Text", "Inter", "Segoe UI", sans-serif;
-
-      --transition-fast: 0.25s ease;
+    body.dark {
+      --bg: #0f172a;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1e293b;
+      --accent: #60a5fa;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
 
     * {
@@ -40,1224 +32,260 @@
       padding: 0;
     }
 
-    html, body {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: var(--font-sans);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
       background: var(--bg);
-      color: var(--text-main);
+      color: var(--text);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     a {
-      color: inherit;
+      color: var(--accent);
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .page {
-      max-width: var(--page-max);
-      margin: 0 auto;
+      max-width: 1100px;
+      margin: auto;
       padding: 32px 20px 80px;
     }
 
-    /* NAVBAR */
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: #ffffffcc;
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
     }
 
-    .nav-inner {
-      max-width: var(--page-max);
-      margin: 0 auto;
+    .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
       padding: 12px 20px;
     }
 
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 18px;
-      font-size: 0.9rem;
-    }
-
-    nav a {
+    .toggle {
+      cursor: pointer;
+      border: 1px solid var(--border);
       padding: 6px 12px;
-      border-radius: var(--radius-full);
-      color: var(--text-muted);
-      transition: background var(--transition-fast),
-                  color var(--transition-fast),
-                  transform 0.15s ease-out;
-    }
-
-    nav a:hover {
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--text-main);
-      transform: translateY(-1px);
-    }
-
-    /* GENERIC SECTION HEADERS */
-
-    section {
-      margin-top: 56px;
-    }
-
-    .section-kicker {
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .section-title {
-      font-size: 1.7rem;
-      font-weight: 650;
-      color: var(--text-main);
-      margin-bottom: 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      background: var(--card);
     }
 
     /* HERO */
-
     .hero {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       gap: 48px;
-      padding: 72px 0 48px;
-      min-height: 60vh;
-    }
-
-    .hero-heading-sub {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      align-items: center;
+      padding-top: 64px;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 6px;
+      font-size: 2.8rem;
     }
 
-    .hero-role {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .hero-tagline {
-      font-size: 1rem;
-      color: var(--text-muted);
+    .hero p {
+      color: var(--muted);
       max-width: 520px;
-      margin-bottom: 22px;
+      margin: 14px 0 20px;
     }
 
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .btn {
-      border-radius: var(--radius-full);
-      border: 1px solid #d1d5db;
-      padding: 10px 22px;
-      font-size: 0.92rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-      background: #ffffff;
-      color: var(--text-main);
-      transition: background var(--transition-fast),
-                  color var(--transition-fast),
-                  border-color var(--transition-fast),
-                  box-shadow var(--transition-fast),
-                  transform 0.18s ease-out;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .btn-primary {
-      background: var(--btn-dark);
-      border-color: var(--btn-dark);
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    .btn-primary:hover {
-      background: var(--btn-dark-hover);
-      border-color: var(--btn-dark-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-outline {
-      background: #ffffff;
-      color: var(--text-main);
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .btn-outline:hover {
-      background: #f3f4f6;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-socials {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .hero-socials a {
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.25);
-      color: #1d4ed8;
-      font-weight: 500;
-      transition: var(--transition-fast);
-    }
-
-    .hero-socials a:hover {
-      background: #1d4ed8;
-      color: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.4);
-    }
-
-    .hero-photo-wrap {
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-photo {
-      width: 340px;
-      height: 340px;
+    .hero img {
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.45);
-      border: 6px solid #ffffff;
-      background: #e5e7eb;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      box-shadow: var(--shadow);
+      border: 6px solid var(--card);
     }
 
-    .hero-photo:hover {
-      transform: scale(1.03) translateY(-4px);
-      box-shadow: 0 32px 90px rgba(15, 23, 42, 0.55);
+    /* SECTIONS */
+    section {
+      margin-top: 72px;
     }
 
-    /* ABOUT / JOURNEY / EDUCATION */
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    .about-card,
-    .timeline-card,
-    .edu-card,
-    .about-card-skills {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--card-border);
-      padding: 20px 22px 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .about-card p {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .timeline-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .timeline-list {
-      list-style: none;
-      margin-top: 6px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 14px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 4px;
-      top: 7px;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .timeline-year {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-      margin-bottom: 2px;
-    }
-
-    .timeline-label {
-      font-size: 0.96rem;
-      font-weight: 550;
-      color: var(--text-main);
-    }
-
-    .timeline-desc {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .edu-block {
-      margin-bottom: 14px;
-    }
-
-    .edu-block:last-child {
-      margin-bottom: 0;
-    }
-
-    .edu-degree {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .edu-meta {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .edu-extra {
-      font-size: 0.84rem;
-      color: #4b5563;
-      margin-top: 3px;
-    }
-
-    /* SKILLS */
-
-    .skills-category {
+    .section-title {
+      font-size: 1.6rem;
       margin-bottom: 16px;
     }
 
-    .skills-category-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: var(--text-main);
-    }
-
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .skill-pill {
-      padding: 6px 11px;
-      border-radius: var(--radius-full);
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      color: #111827;
-      font-size: 0.8rem;
-      white-space: nowrap;
-      transition: background var(--transition-fast), transform var(--transition-fast),
-        box-shadow var(--transition-fast);
-    }
-
-    .skill-pill:hover {
-      background: var(--accent-soft);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: var(--shadow);
     }
 
     /* PROJECTS */
-
-    .projects-grid {
+    .project {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-      margin-top: 16px;
+      grid-template-columns: 240px 1fr;
+      gap: 28px;
+      margin-bottom: 32px;
     }
 
-    .project-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--card-border);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-soft);
-      transform: translateY(0) scale(1);
-      transition: transform var(--transition-fast),
-                  box-shadow var(--transition-fast),
-                  border-color var(--transition-fast);
-      cursor: pointer;
+    .project img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
     }
 
-    .project-card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 28px 70px rgba(15, 23, 42, 0.26);
-      border-color: rgba(37, 99, 235, 0.55);
-    }
-
-    .project-thumb {
-      height: 170px;
-      background: radial-gradient(circle at top left, #e5edff, #1f2937 120%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #e5e7eb;
-      font-size: 0.9rem;
-      padding: 10px;
-    }
-
-    .project-body {
-      padding: 18px 18px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .project-title {
-      font-size: 1.02rem;
-      font-weight: 600;
-      color: var(--text-main);
-      line-height: 1.35;
-    }
-
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .project-footer {
-      margin-top: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .project-tools {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .tool-pill {
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      font-size: 0.76rem;
-      color: #111827;
-      white-space: nowrap;
-    }
-
-    .btn-mini {
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      border-radius: var(--radius-full);
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      color: var(--text-main);
-      cursor: pointer;
-      transition: var(--transition-fast);
-      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.35);
-    }
-
-    .btn-mini:hover {
-      background: #111827;
-      color: #ffffff;
-      border-color: #111827;
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.55);
-    }
-
-    /* CERTIFICATES */
-
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-      margin-top: 12px;
-    }
-
-    .cert-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--card-border);
-      padding: 12px 12px 14px;
-      box-shadow: var(--shadow-soft);
-      transition: transform var(--transition-fast),
-                  box-shadow var(--transition-fast),
-                  border-color var(--transition-fast);
-      cursor: pointer;
-    }
-
-    .cert-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(37, 99, 235, 0.55);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.34);
-    }
-
-    .cert-thumb {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: #eef2ff;
-      height: 135px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .project h3 {
       margin-bottom: 8px;
-      padding: 10px;
-      text-align: center;
     }
 
-    .cert-title {
-      font-size: 0.94rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .cert-meta {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    /* CONTACT */
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 26px;
-      align-items: flex-start;
-    }
-
-    .contact-text {
-      font-size: 0.96rem;
-      color: var(--text-muted);
+    .project p {
+      color: var(--muted);
       margin-bottom: 10px;
     }
 
-    .contact-links {
-      margin-top: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.9rem;
+    .tools {
+      font-size: 0.85rem;
+      color: var(--muted);
     }
 
-    .contact-links a {
-      color: #1d4ed8;
-    }
-
-    .contact-card {
-      background: var(--card-bg);
-      padding: 22px 22px 20px;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .form-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 6px;
-    }
-
-    .form-field label {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .form-field input,
-    .form-field textarea {
-      border-radius: 12px;
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      padding: 9px 11px;
-      font-size: 0.9rem;
-      color: var(--text-main);
-      outline: none;
-      transition: border-color var(--transition-fast),
-                  box-shadow var(--transition-fast),
-                  background var(--transition-fast),
-                  transform 0.15s ease-out;
-      resize: vertical;
-      min-height: 42px;
-    }
-
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: #9ca3af;
-    }
-
-    .form-field input:focus,
-    .form-field textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
-      transform: translateY(-1px);
-      background: #ffffff;
-    }
-
-    .submit-row {
-      margin-top: 6px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .submit-btn {
-      border-radius: var(--radius-full);
-      background: var(--btn-dark);
-      color: #ffffff;
-      border: none;
-      padding: 9px 22px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: var(--shadow-soft);
-      transition: var(--transition-fast);
-    }
-
-    .submit-btn:hover {
-      background: var(--btn-dark-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.55);
+    /* CONTACT */
+    .contact p {
+      color: var(--muted);
+      max-width: 600px;
     }
 
     footer {
-      margin-top: 44px;
       text-align: center;
-      color: var(--text-muted);
+      margin-top: 64px;
       font-size: 0.8rem;
-    }
-
-    /* ANIMATIONS */
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(18px);
-      animation: fadeInMove 0.8s ease forwards;
-    }
-
-    .fade-in:nth-of-type(2) {
-      animation-delay: 0.08s;
-    }
-
-    .fade-in:nth-of-type(3) {
-      animation-delay: 0.14s;
-    }
-
-    @keyframes fadeInMove {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      color: var(--muted);
     }
 
     /* RESPONSIVE */
-
-    @media (max-width: 880px) {
+    @media (max-width: 900px) {
       .hero {
         flex-direction: column-reverse;
-        align-items: flex-start;
-        padding-top: 52px;
+        text-align: center;
       }
 
-      .hero-photo-wrap {
-        align-self: center;
-      }
-
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-
-      .about-layout,
-      .contact-layout {
+      .project {
         grid-template-columns: 1fr;
       }
-    }
 
-    @media (max-width: 640px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      nav ul {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .hero {
-        padding-top: 40px;
-      }
-
-      .hero-photo {
-        width: 240px;
-        height: 240px;
+      .hero img {
+        width: 220px;
+        height: 220px;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAVBAR -->
-  <header>
-    <div class="nav-inner">
-      <div class="logo">GRISHMA BALGI</div>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certificates">Certificates</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+<header>
+  <div class="nav">
+    <strong>GRISHMA BALGI</strong>
+    <button class="toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Grishma Balgi</h1>
+      <p>
+        MSc Mechatronics & Robotics student focused on designing and manufacturing
+        intelligent robotic systems.
+      </p>
+      <a href="assets/resume.pdf">Download Resume →</a>
     </div>
-  </header>
+    <img src="assets/profilephoto.jpg" alt="Grishma Balgi">
+  </section>
 
-  <main class="page">
-    <!-- HERO SECTION -->
-    <section class="hero fade-in" id="home">
+  <!-- ABOUT -->
+  <section>
+    <div class="section-title">About Me</div>
+    <div class="card">
+      <p>
+        I mentored multiple engineering and robotics projects during my undergraduate
+        studies at VJTI and later worked as a Machine Learning Research Intern at
+        Schneider Electric, focusing on digital twins and fault detection systems.
+        I am currently pursuing my MSc in Mechatronics and Robotics at NYU.
+      </p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-title">Education</div>
+    <div class="card">
+      <p><strong>MSc Mechatronics & Robotics</strong> — NYU (2025–Present)</p>
+      <p><strong>B.Tech Mechanical Engineering</strong> — VJTI (2021–2025)</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <div class="section-title">Projects</div>
+
+    <div class="project">
+      <img src="assets/project1.jpg" alt="">
       <div>
-        <div class="hero-heading-sub">Hello, I'm</div>
-        <h1>Grishma Balgi</h1>
-        <div class="hero-role">MSc Mechatronics &amp; Robotics Student</div>
-
-        <p class="hero-tagline">
-          I’m a mechatronics and robotics engineer focused on designing and manufacturing
-          robotic systems, combining mechanical design, automation, and embedded intelligence.
+        <h3>Multi-Sensor Fault Detection System</h3>
+        <p>
+          Real-time fault detection for low-voltage circuit breakers using vibration
+          and sound signals with embedded ML and digital twins.
         </p>
-
-        <div class="hero-buttons">
-          <!-- point this to your PDF in assets/ -->
-          <a href="assets/resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">
-            Download Resume
-          </a>
-          <a href="mailto:grishmabalgi1311@gmail.com" class="btn btn-outline">
-            Contact Me
-          </a>
-        </div>
-
-        <div class="hero-socials">
-          <span>Find me on:</span>
-          <a href="https://www.linkedin.com/in/grishma-balgi" target="_blank" rel="noopener">
-            LinkedIn
-          </a>
-        </div>
+        <div class="tools">Python · MATLAB · Arduino · ML</div>
       </div>
+    </div>
 
-      <div class="hero-photo-wrap">
-        <img src="assets/profilephoto.jpg" class="hero-photo" alt="Grishma Balgi" />
+    <div class="project">
+      <img src="assets/project2.jpg" alt="">
+      <div>
+        <h3>Autonomous Steering & Obstacle Detection</h3>
+        <p>
+          Multi-lane autonomous driving simulator using virtual LiDAR and
+          machine learning with 99.94% accuracy.
+        </p>
+        <div class="tools">MATLAB · Simulink · Python</div>
       </div>
-    </section>
+    </div>
 
-    <!-- ABOUT / JOURNEY / EDUCATION -->
-    <section id="about" class="fade-in">
-      <div class="section-kicker">get to know</div>
-      <div class="section-title">About Me</div>
-      <div class="about-layout">
-        <div class="about-card">
-          <p>
-            During my undergraduate years at VJTI, I mentored multiple engineering and robotics
-            projects, contributing to mechanical design, automation, and hardware integration.
-          </p>
-          <p>
-            I gained hands-on industry experience as a Machine Learning Research Intern at Schneider
-            Electric, working on digital twins, reduced-order models, fault detection, and
-            embedded ML systems for industrial equipment. I have also held key leadership roles,
-            including Vice Captain of VJTI Racing and Coordinator at the Training &amp; Placement
-            Office, where I managed teams, project timelines, and industry collaborations.
-          </p>
-          <p>
-            I’m currently pursuing my MSc in Mechatronics and Robotics at New York University,
-            expanding my expertise in robotics, simulation, embedded systems, and automation.
-          </p>
-        </div>
+  </section>
 
-		<div class="timeline-card">
-			<div class="timeline-title">My Journey</div>
-			<ul class="timeline-list">
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="section-title">Get in Touch</div>
+    <div class="card">
+      <p>
+        Interested in robotics, research, or collaborations?
+        Reach out via email or LinkedIn.
+      </p>
+      <p>
+        <a href="mailto:grishmabalgi1311@gmail.com">grishmabalgi1311@gmail.com</a><br>
+        <a href="https://linkedin.com/in/grishma-balgi" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </section>
 
-				<li class="timeline-item">
-					<div class="timeline-year">2021 – 2025</div>
-					<div class="timeline-label">B.Tech in Mechanical Engineering, VJTI</div>
-					<div class="timeline-desc">
-						Built foundations in mechanical design, robotics, mechatronics, and engineering systems.
-					</div>
-				</li>
+  <footer>
+    Designed by Grishma Balgi
+  </footer>
 
-				<li class="timeline-item">
-					<div class="timeline-year">2022 – 2024</div>
-					<div class="timeline-label">Vice Captain, VJTI Racing</div>
-					<div class="timeline-desc">
-						Led a 23-member team designing and building an electric all-terrain vehicle; managed
-						cross-functional collaboration, manufacturing, and competition readiness.
-					</div>
-				</li>
+</main>
 
-				<li class="timeline-item">
-					<div class="timeline-year">2024 – 2025</div>
-					<div class="timeline-label">Training &amp; Placement Coordinator, VJTI</div>
-					<div class="timeline-desc">
-						Coordinated on-campus recruitment for 40+ companies and maintained dashboards,
-						contributing to strong placement outcomes.
-					</div>
-				</li>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+  }
+</script>
 
-				<li class="timeline-item">
-					<div class="timeline-year">2024 – 2025</div>
-					<div class="timeline-label">ML Research Intern, Schneider Electric</div>
-					<div class="timeline-desc">
-						Developed CAE and reduced-order models, digital twins, and fault detection systems
-						for low-voltage circuit breakers using simulations and ML.
-					</div>
-				</li>
-
-				<li class="timeline-item">
-					<div class="timeline-year">2025 – Present</div>
-					<div class="timeline-label">MSc Mechatronics &amp; Robotics, NYU</div>
-					<div class="timeline-desc">
-						Deepening expertise in robotics, embedded systems, simulation, and intelligent automation.
-					</div>
-				</li>
-
-			</ul>
-		</div>
-
-      </div>
-
-      <section style="margin-top: 28px;">
-        <div class="section-kicker">my academic</div>
-        <div class="section-title">Education</div>
-        <div class="edu-card">
-          <div class="edu-block">
-            <div class="edu-degree">MSc in Mechatronics and Robotics</div>
-            <div class="edu-meta">
-              New York University, Tandon School of Engineering · 2025 – Present · New York, USA
-            </div>
-          </div>
-          <div class="edu-block">
-            <div class="edu-degree">
-              B.Tech in Mechanical Engineering (Honors in Automobile Engineering)
-            </div>
-            <div class="edu-meta">
-              Veermata Jijabai Technological Institute (VJTI) · 2021 – 2025
-            </div>
-          </div>
-          <div class="edu-block">
-            <div class="edu-degree">Higher Secondary Certificate – Science</div>
-            <div class="edu-meta">Kishinchand Chellaram College · 2019 – 2021</div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="fade-in">
-      <div class="section-kicker">explore my</div>
-      <div class="section-title">Skills</div>
-
-      <div class="about-card">
-        <div class="skills-category">
-          <div class="skills-category-title">Technical</div>
-          <div class="skills-grid">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">MATLAB</span>
-            <span class="skill-pill">C++</span>
-            <span class="skill-pill">C</span>
-            <span class="skill-pill">Altair Twin Activate</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <div class="skills-category-title">Software &amp; CAD</div>
-          <div class="skills-grid">
-            <span class="skill-pill">SolidWorks</span>
-            <span class="skill-pill">Creo Parametric</span>
-            <span class="skill-pill">CATIA</span>
-            <span class="skill-pill">AutoCAD</span>
-            <span class="skill-pill">Fusion 360</span>
-            <span class="skill-pill">ANSYS Workbench</span>
-            <span class="skill-pill">Mechanical APDL</span>
-            <span class="skill-pill">Altair MotionView</span>
-            <span class="skill-pill">romAI</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <div class="skills-category-title">Robotics &amp; Simulation</div>
-          <div class="skills-grid">
-            <span class="skill-pill">ROS / ROS2</span>
-            <span class="skill-pill">Gazebo</span>
-            <span class="skill-pill">MuJoCo</span>
-            <span class="skill-pill">RoboAnalyzer</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <div class="skills-category-title">Hardware &amp; Prototyping</div>
-          <div class="skills-grid">
-            <span class="skill-pill">Arduino</span>
-            <span class="skill-pill">Raspberry Pi</span>
-            <span class="skill-pill">Sensors</span>
-            <span class="skill-pill">Microcontrollers</span>
-            <span class="skill-pill">3D Printing</span>
-            <span class="skill-pill">Bambu Lab</span>
-            <span class="skill-pill">Creality</span>
-            <span class="skill-pill">Cura Ultimaker</span>
-            <span class="skill-pill">PCB Design</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <div class="skills-category-title">Tools &amp; Productivity</div>
-          <div class="skills-grid">
-            <span class="skill-pill">SQL</span>
-            <span class="skill-pill">Tableau</span>
-            <span class="skill-pill">Flutterflow</span>
-            <span class="skill-pill">Excel</span>
-            <span class="skill-pill">PowerPoint</span>
-            <span class="skill-pill">Canva</span>
-            <span class="skill-pill">Google Analytics</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <div class="skills-category-title">Social &amp; Leadership</div>
-          <div class="skills-grid">
-            <span class="skill-pill">Team Leadership</span>
-            <span class="skill-pill">Project Mentoring</span>
-            <span class="skill-pill">Problem-Solving</span>
-            <span class="skill-pill">Communication</span>
-            <span class="skill-pill">Collaboration</span>
-            <span class="skill-pill">Time Management</span>
-            <span class="skill-pill">Adaptability</span>
-            <span class="skill-pill">Critical Thinking</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="fade-in">
-      <div class="section-kicker">browse my recent</div>
-      <div class="section-title">Projects</div>
-
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <article class="project-card">
-          <div class="project-thumb">
-            Multi-Sensor Fault Detection – thumbnail
-          </div>
-          <div class="project-body">
-            <div class="project-title">Multi-Sensor Fault Detection System</div>
-            <div class="project-desc">
-              Real-time fault detection for low-voltage circuit breakers using vibration and sound
-              sensors, embedded ML models, and a digital twin interface for live monitoring.
-            </div>
-            <div class="project-footer">
-              <button class="btn-mini">View Project</button>
-              <div class="project-tools">
-                <span class="tool-pill">Python</span>
-                <span class="tool-pill">MATLAB</span>
-                <span class="tool-pill">Arduino</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="project-card">
-          <div class="project-thumb">
-            Autonomous Steering – thumbnail
-          </div>
-          <div class="project-body">
-            <div class="project-title">Autonomous Steering &amp; Obstacle Detection</div>
-            <div class="project-desc">
-              Multi-lane autonomous driving simulator using virtual LiDAR sensing and ML, achieving
-              99.94% accuracy and featuring a MATLAB-based UI with collision alerts.
-            </div>
-            <div class="project-footer">
-              <button class="btn-mini">View Project</button>
-              <div class="project-tools">
-                <span class="tool-pill">MATLAB</span>
-                <span class="tool-pill">Simulink</span>
-                <span class="tool-pill">Python</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project-card">
-          <div class="project-thumb">
-            Wall-E Robot – thumbnail
-          </div>
-          <div class="project-body">
-            <div class="project-title">Wall-E: Line-Following &amp; Self-Balancing Robot</div>
-            <div class="project-desc">
-              Self-balancing and line-following robot built using ESP32, PID control, sensor arrays,
-              and an OLED display for real-time feedback.
-            </div>
-            <div class="project-footer">
-              <button class="btn-mini">View Project</button>
-              <div class="project-tools">
-                <span class="tool-pill">ESP32</span>
-                <span class="tool-pill">Arduino IDE</span>
-                <span class="tool-pill">Python</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 4 -->
-        <article class="project-card">
-          <div class="project-thumb">
-            Composite Kiteboard – thumbnail
-          </div>
-          <div class="project-body">
-            <div class="project-title">Composite Kiteboard FEA Analysis</div>
-            <div class="project-desc">
-              Advanced finite element analysis of a composite kiteboard to study stress,
-              deformation, and laminate stacking effects, leading to a research publication.
-            </div>
-            <div class="project-footer">
-              <button class="btn-mini">View Project</button>
-              <div class="project-tools">
-                <span class="tool-pill">ANSYS ACP-Pre</span>
-                <span class="tool-pill">FEA</span>
-                <span class="tool-pill">Composites</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 5 -->
-        <article class="project-card">
-          <div class="project-thumb">
-            Ecosteps App – thumbnail
-          </div>
-          <div class="project-body">
-            <div class="project-title">Ecosteps: Sustainability App Prototype</div>
-            <div class="project-desc">
-              Flutterflow-based prototype enabling users and businesses to track carbon footprint
-              and explore sustainability insights; built as part of a tech championship.
-            </div>
-            <div class="project-footer">
-              <button class="btn-mini">View Project</button>
-              <div class="project-tools">
-                <span class="tool-pill">Flutterflow</span>
-                <span class="tool-pill">UI/UX</span>
-                <span class="tool-pill">Product Design</span>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-    <section id="certificates" class="fade-in">
-      <div class="section-kicker">my</div>
-      <div class="section-title">Awards &amp; Certificates</div>
-
-      <div class="certs-grid">
-        <!-- Cert 1 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            CAE Model for Circuit Breaker – Certificate
-          </div>
-          <div class="cert-title">CAE Model for Circuit Breaker Mechanism &amp; ROM</div>
-          <div class="cert-meta">VJTI Mechanical Engineering Department · 2024</div>
-        </article>
-
-        <!-- Cert 2 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            Vice Captain – VJTI Racing
-          </div>
-          <div class="cert-title">Letter of Acknowledgement – Vice Captain</div>
-          <div class="cert-meta">VJTI Racing / Team Motorbreath · 2023–2024</div>
-        </article>
-
-        <!-- Cert 3 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            BAJA SAEINDIA 1st Prize
-          </div>
-          <div class="cert-title">1st Prize – Overall Static Event (eBAJA 2024)</div>
-          <div class="cert-meta">BAJA SAEINDIA · 2024</div>
-        </article>
-
-        <!-- Cert 4 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            VJTI Internship – Braking System
-          </div>
-          <div class="cert-title">Internship – Braking System of Electric ATV</div>
-          <div class="cert-meta">VJTI · 2023</div>
-        </article>
-
-        <!-- Cert 5 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            Schneider Electric Internship
-          </div>
-          <div class="cert-title">Internship – Schneider Electric</div>
-          <div class="cert-meta">Schneider Electric India · 2024</div>
-        </article>
-
-        <!-- Cert 6 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            Appreciation – JT General Secretary
-          </div>
-          <div class="cert-title">Certificate of Appreciation – JT General Secretary</div>
-          <div class="cert-meta">VJTI Racing Technical Group · 2023–2024</div>
-        </article>
-
-        <!-- Cert 7 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            BAJA Participation
-          </div>
-          <div class="cert-title">BAJA SAEINDIA 2024 – Participation</div>
-          <div class="cert-meta">BAJA SAEINDIA · 2024</div>
-        </article>
-
-        <!-- Cert 8 -->
-        <article class="cert-card">
-          <div class="cert-thumb">
-            ATVC Participation
-          </div>
-          <div class="cert-title">ATVC 2024 – Participation</div>
-          <div class="cert-meta">ATVC · 2024</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="fade-in">
-      <div class="section-kicker">get in touch</div>
-      <div class="section-title">Contact Me</div>
-
-      <div class="contact-layout">
-        <div>
-          <p class="contact-text">
-            I’m passionate about robotics, mechatronics, and building intelligent hardware systems.
-            If you’d like to discuss projects, collaborations, research, or opportunities, feel free
-            to reach out. I’m also happy to talk about student projects, competitions, and
-            interdisciplinary work.
-          </p>
-          <div class="contact-links">
-            <div>
-              <strong>Email:</strong>
-              <a href="mailto:grishmabalgi1311@gmail.com">grishmabalgi1311@gmail.com</a>
-            </div>
-            <div>
-              <strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/grishma-balgi" target="_blank" rel="noopener">
-                linkedin.com/in/grishma-balgi
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <form class="form-grid" method="POST" action="#">
-            <div class="form-field">
-              <label for="name">Enter Your Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
-            </div>
-            <div class="form-field">
-              <label for="email">Enter Your Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            </div>
-            <div class="form-field">
-              <label for="subject">Enter Subject of the Mail</label>
-              <input id="subject" name="subject" type="text" placeholder="Subject" required />
-            </div>
-            <div class="form-field">
-              <label for="message">Enter Your Message Here</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Type your message..."
-                required
-              ></textarea>
-            </div>
-            <div class="submit-row">
-              <button type="submit" class="submit-btn">
-                Submit
-                <span>➜</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>Designed for &amp; by Grishma Balgi</p>
-    </footer>
-  </main>
 </body>
 </html>
