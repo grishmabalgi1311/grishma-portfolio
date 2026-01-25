@@ -293,7 +293,15 @@
         I'm a mechatronics and robotics engineering focused on desinging and
         manufacturing robotic systems, combining mechanical design, automation and embedded intelligence. 
       </p>
-      <a href="assets/Grishma_Balgi_Resume.pdf" download>Download Resume →</a>
+      <a 
+        href="assets/Balgi__Resume_Intern.pdf"
+        download
+        target="_blank"
+        rel="noopener"
+      >
+        Download Resume →
+      </a>
+
     </div>
     <img src="assets/profilephoto.jpg" alt="Grishma Balgi">
   </section>
@@ -374,6 +382,12 @@
   function toggleTheme() {
     document.body.classList.toggle("dark");
   }
+
+  // Force page to start at top on reload
+  window.onload = () => {
+    window.scrollTo(0, 0);
+    history.replaceState(null, null, " ");
+  };
 </script>
 
 </body>
