@@ -78,6 +78,17 @@
       font-size: 0.9rem;
     }
 
+    .nav-links a {
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
     .toggle {
       border: 1px solid var(--border);
       background: var(--card);
@@ -88,8 +99,8 @@
 
     /* BANNER */
     .hero-banner {
-      height: 35vh;
-      min-height: 380px;
+      height: 32vh;
+      min-height: 320px;
       background: url("assets/robotics-banner.jpg") center / cover no-repeat;
       position: relative;
     }
@@ -98,7 +109,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.3);
     }
 
     /* PAGE */
@@ -113,13 +124,13 @@
       display: flex;
       gap: 48px;
       align-items: flex-start;
-      margin-top: -90px;
+      margin-top: -70px;
       position: relative;
       z-index: 10;
     }
 
     .hero-text {
-      margin-top: 120px;
+      margin-top: 140px;
       max-width: 560px;
     }
 
@@ -131,38 +142,51 @@
       object-fit: cover;
       border: 4px solid var(--card);
       box-shadow: var(--shadow);
-      margin-left: 120px;
-      transform: translateY(40px);
+      margin-left: 140px;
+      transform: translateY(60px);
     }
 
-    /* ANIMATIONS */
-    .intro-hi {
-      font-size: 2.6rem;
-      font-weight: 700;
+    /* ANIMATED INTRO (SAME LINE) */
+    .intro-line {
+      position: relative;
+      height: 3.8rem;
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    .intro-line span {
+      position: absolute;
+      left: 0;
+      top: 0;
       opacity: 0;
-      animation: fadeInOut 1.6s ease forwards;
+    }
+
+    .intro-hi {
+      animation: hiFade 1.6s ease forwards;
     }
 
     .intro-name {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-top: 8px;
-      opacity: 0;
-      animation: fadeInOut 1.6s ease forwards;
-      animation-delay: 1.8s;
+      animation: nameFadeIn 1.4s ease forwards;
+      animation-delay: 1.6s;
     }
 
     .intro-final {
       opacity: 0;
       animation: fadeInStay 1.4s ease forwards;
-      animation-delay: 3.6s;
+      animation-delay: 3.2s;
+      margin-top: 18px;
     }
 
-    @keyframes fadeInOut {
+    @keyframes hiFade {
       0% { opacity: 0; }
       20% { opacity: 1; }
       80% { opacity: 1; }
       100% { opacity: 0; }
+    }
+
+    @keyframes nameFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @keyframes fadeInStay {
@@ -229,10 +253,14 @@
 
 <main class="page">
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <div class="intro-hi">Hi!</div>
-      <div class="intro-name">I'm Grishma Balgi</div>
+
+      <div class="intro-line">
+        <span class="intro-hi">Hi!</span>
+        <span class="intro-name">I'm Grishma Balgi</span>
+      </div>
 
       <div class="intro-final">
         <p>
@@ -244,11 +272,13 @@
           Download Resume →
         </a>
       </div>
+
     </div>
 
     <img src="assets/profilephoto.jpg" alt="Grishma Balgi">
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
     <div class="section-title">About Me</div>
     <div class="card">
@@ -260,6 +290,7 @@
     </div>
   </section>
 
+  <!-- EDUCATION -->
   <section id="education">
     <div class="section-title">Education</div>
     <div class="card">
@@ -269,6 +300,7 @@
   </section>
 
   <footer>Designed by Grishma Balgi</footer>
+
 </main>
 
 <script>
