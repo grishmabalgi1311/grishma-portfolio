@@ -311,64 +311,122 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-title">Projects</div>
-
+  
     <!-- Project 1 -->
     <div class="project">
-      <img src="assets/project_fault_detection.jpg" alt="Multi-Sensor Fault Detection">
+      <img src="assets/project_fault_detection.jpg" alt="Multi-Sensor Fault Detection System">
       <div>
         <h3>Multi-Sensor Fault Detection System</h3>
         <p>
-          Digital twin–based fault detection for industrial circuit breakers using
-          vibration and acoustic sensing with embedded data acquisition and ML-based classification.
+          Designed and implemented a digital twin–based fault detection framework for low-voltage
+          circuit breakers using a multi-sensor embedded system. The project focused on detecting
+          mechanical degradation in internal spring mechanisms by analyzing vibration and acoustic
+          signatures captured using a 6-axis accelerometer and an analog sound sensor.
         </p>
+        <p>
+          A custom data acquisition system built around an Arduino Nano 33 IoT enabled synchronized
+          multi-modal data logging with both Wi-Fi transmission and onboard microSD backup.
+          Machine learning classifiers—including Decision Trees, SVM, XGBoost, and Naive Bayes—
+          were trained to identify fault severity levels with high accuracy. A Python-based GUI
+          allowed intuitive interaction with trained models, demonstrating a practical predictive
+          maintenance workflow suitable for industrial deployment.
+        </p>
+        <a href="assets/FINAL_YEAR_PROJECT.pdf" target="_blank">
+          View Full Technical Report →
+        </a>
       </div>
     </div>
-
+  
     <!-- Project 2 -->
     <div class="project">
       <img src="assets/project_gesture_finger.jpg" alt="Gesture Controlled Robotic Finger">
       <div>
         <h3>Gesture-Controlled Robotic Finger</h3>
         <p>
-          Vision-based human-in-the-loop control of a tendon-driven robotic finger using
-          closed-loop PD control, encoder feedback, and embedded firmware.
+          Developed a vision-based, human-in-the-loop mechatronic system to control a tendon-driven
+          robotic finger in real time. Human finger motion was captured using a monocular camera and
+          processed via MediaPipe to generate reference commands for actuation.
         </p>
+        <p>
+          The robotic finger was modeled as a single-input single-output electromechanical system
+          and controlled using a discretized PD controller implemented on an embedded platform.
+          Encoder feedback enabled closed-loop position control, while MATLAB/Simulink simulations
+          were used to validate stability and performance prior to hardware deployment. The project
+          emphasized full-stack integration across perception, control, embedded firmware, and
+          mechanical actuation.
+        </p>
+        <a href="assets/E2_Report_Group01_Single-DOFGestureControlledRoboticFinger.pdf" target="_blank">
+          View Project Report →
+        </a>
       </div>
     </div>
-
+  
     <!-- Project 3 -->
     <div class="project">
-      <img src="assets/project_kiteboard.jpg" alt="Composite Structure Analysis">
+      <img src="assets/project_kiteboard.jpg" alt="Composite Kiteboard Analysis">
       <div>
         <h3>Composite Structure Analysis (Kiteboard)</h3>
         <p>
-          Finite element analysis of composite sandwich structures using ANSYS ACP to
-          evaluate stiffness, strength, and ply-orientation tradeoffs under real-world loading.
+          Conducted a detailed finite element analysis of a composite sandwich-structured kiteboard
+          using ANSYS ACP to evaluate structural performance under realistic loading conditions.
+          The study focused on optimizing ply orientation, stacking sequence, and material selection
+          to balance stiffness, strength, and weight.
         </p>
+        <p>
+          Carbon-epoxy laminates with a polyurethane core were modeled to replicate real-world
+          composite behavior. Boundary conditions and meshing strategies were chosen to capture
+          deformation and stress distribution accurately. This project strengthened understanding
+          of composite design tradeoffs and simulation-driven decision-making for lightweight,
+          performance-critical structures.
+        </p>
+        <a href="assets/Analysis_of_Composite_Kiteboard_Design.pdf" target="_blank">
+          View Research Paper →
+        </a>
       </div>
     </div>
-
+  
     <!-- Project 4 -->
     <div class="project">
-      <img src="assets/project_manufacturing.jpg" alt="Manufacturing and Mechanism Design">
+      <img src="assets/project_manufacturing.jpg" alt="Mechanical Manufacturing Project">
       <div>
         <h3>Mechanical Manufacturing & Assembly Project</h3>
         <p>
-          Design and fabrication of a multi-link mechanical assembly involving machining,
-          drilling, welding, tolerancing, and full system assembly.
+          Designed and fabricated a mechanically actuated assembly involving multiple machined
+          components, linkages, and structural elements. The project emphasized hands-on
+          manufacturing processes including cutting, drilling, grinding, welding, and dimensional
+          tolerancing.
         </p>
+        <p>
+          Individual components were modeled, manufactured, and assembled into a functional system,
+          highlighting real-world considerations such as alignment, fastening, structural rigidity,
+          and manufacturability. This work reinforced practical understanding of translating CAD
+          designs into physical hardware and resolving fitment and assembly challenges.
+        </p>
+        <a href="assets/MANUFACTURING_SCIENCE_AND_TECHNOLOGY.pdf" target="_blank">
+          View Manufacturing Report →
+        </a>
       </div>
     </div>
-
+  
     <!-- Project 5 -->
     <div class="project">
-      <img src="assets/project_atv.jpg" alt="All Terrain Vehicle">
+      <img src="assets/project_atv.jpg" alt="All Terrain Vehicle Project">
       <div>
         <h3>All-Terrain Vehicle (In Progress)</h3>
         <p>
-          Vehicle-scale mechanical system focusing on subsystem integration,
-          structural design, and durability considerations for off-road operation.
+          Ongoing vehicle-scale project focused on mechanical system architecture, subsystem
+          integration, and durability considerations for off-road operation. The work emphasizes
+          translating mechanical design concepts into robust hardware capable of operating under
+          vibration, load variation, and environmental constraints.
         </p>
+        <p>
+          Current efforts include structural layout, component packaging, and early-stage design
+          decisions informed by manufacturability and serviceability. This project reflects a
+          growing interest in applied vehicle engineering and full-system integration.
+        </p>
+        <span style="color: var(--muted); font-size: 0.9rem;">
+          Detailed documentation coming soon.
+        </span>
       </div>
     </div>
   </section>
