@@ -11,5 +11,22 @@
   "fin-fixture.webp": "Original fixture CAD image in the same report, page 7.",
   "fault-acquisition.webp": "Original team acquisition-enclosure photograph in FINAL YEAR PROJECT report, page 59.",
   "kiteboard-mesh.webp": "Original team Ansys mesh screenshot, Analysis of Composite Kiteboard Design, page 6.",
-  "kiteboard-analysis.webp": "Original team Ansys result screenshot, same report, page 8. Simulation only."
+  "kiteboard-analysis.webp": "Original team Ansys result screenshot, same report, page 8. Simulation only.",
+  "finger-concept-v2.webp": "AI-generated explanatory concept illustration created with built-in ImageGen. Not a photograph, exact CAD replica, or experimental result.",
+  "fin-concept-v2.webp": "AI-generated explanatory concept illustration created with built-in ImageGen. Not a photograph, exact CAD replica, or experimental result.",
+  "obstacle-road-v2.webp": "AI-generated explanatory concept illustration created with built-in ImageGen. Not a photograph, exact CAD replica, or experimental result.",
+  "breaker-concept-v2.webp": "AI-generated explanatory concept illustration created with built-in ImageGen. Not a photograph, exact CAD replica, or experimental result.",
+  "baymax-demo-poster.webp": "Unaltered-content frame from original project footage, baymax_demo_video.mp4, 14 seconds. Card framing is performed with CSS.",
+  "videos/baymax-demo.mp4": "Silent compressed excerpt from original project footage: baymax_demo_video.mp4, from 12 seconds for 22 seconds. Historical scope stated in the case study.",
+  "kinetikey-demo-poster.webp": "Unaltered-content frame from original project footage, VIDEO3 (1).mp4, 26 seconds. Card framing is performed with CSS.",
+  "videos/kinetikey-demo.mp4": "Silent compressed excerpt from original project footage: VIDEO3 (1).mp4, from 12 seconds for 18 seconds. Historical scope stated in the case study.",
+  "flexiclimber-demo-poster.webp": "Unaltered-content frame from original project footage, WhatsApp Video 2026-03-03 at 11.00.18 AM.mp4, 24 seconds. Card framing is performed with CSS.",
+  "videos/flexiclimber-demo.mp4": "Silent compressed excerpt from original project footage: WhatsApp Video 2026-03-03 at 11.00.18 AM.mp4, from 17 seconds for 19 seconds. Historical scope stated in the case study.",
+  "fin-demo-poster.webp": "Unaltered-content frame from original project footage, IMG_6222.MOV, 19 seconds. Card framing is performed with CSS.",
+  "videos/fin-demo.mp4": "Silent compressed excerpt from original project footage: IMG_6222.MOV, from 8 seconds for 20 seconds. Historical scope stated in the case study.",
+  "finger-demo-poster.webp": "Unaltered-content frame from original project footage, E2_DemoVideo_Group01_Single-DOFGestureControlledRoboticFinger.mp4, 7.9 seconds. Card framing is performed with CSS.",
+  "videos/finger-demo.mp4": "Silent compressed excerpt from original project footage: E2_DemoVideo_Group01_Single-DOFGestureControlledRoboticFinger.mp4, from 0 seconds for 10 seconds. Historical scope stated in the case study.",
+  "ecg-concept-v2.webp": "Built-in ImageGen educational ECG-acquisition concept, not exact hardware or a clinical measurement.",
+  "navigation-maze-v2.png": "Original browser-rendered toy maze inspired by AI4CE introduction; no AI4CE code, textures or score replay.",
+  "tentacle-mesh-v2.png": "Original browser visualization using actual archived CAD-derived segment meshes, articulated illustratively."
 }

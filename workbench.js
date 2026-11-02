@@ -8,6 +8,58 @@
   let yaw = -.65, pitch = .35, zoom = 1, mode = 'all', value = 12;
   let rotating = false, visible = true, frame = 0, lastTime = 0, drag = null;
   let width = 600, height = 520, faces = [], lines = [], labels = [], tentacleGeometry = null, geometryPromise = null;
+  let impact = null, captures = 0, hammerAngle = -1.75, capturedSamples = null;
+  const strikeButton = document.querySelector('#strike-record');
+  const impactPanel = document.querySelector('#impact-panel');
+  const impactStatus = document.querySelector('#impact-status');
+  const contactAngle = -.53;
+  const mazeGrid=['111111111','100010001','101010101','101000101','101110101','100000101','111110001','111111111'];
+  const mazeStart=[1,1],mazeGoal=[6,7];
+  function solveMaze(){
+    const queue=[mazeStart],parents=new Map([[mazeStart.join(','),null]]);
+    for(let i=0;i<queue.length;i++){
+      const cell=queue[i];if(cell.join(',')===mazeGoal.join(','))break;
+      for(const [dr,dc] of [[1,0],[0,1],[-1,0],[0,-1]]){
+        const next=[cell[0]+dr,cell[1]+dc],key=next.join(',');
+        if(mazeGrid[next[0]]?.[next[1]]==='0'&&!parents.has(key)){parents.set(key,cell);queue.push(next);}
+      }
+    }
+    const path=[];let cell=mazeGoal;while(cell){path.push(cell);cell=parents.get(cell.join(','));}return path.reverse();
+  }
+  const mazeRoute=solveMaze();let mazeProgress=0,mazeRunning=false;
+  const mazeButton=document.querySelector('#maze-run'),mazeReset=document.querySelector('#maze-reset');
+  function mazeReadout(){
+    const step=Math.min(mazeRoute.length-1,Math.floor(mazeProgress));
+    document.querySelector('#bench-readout').innerHTML=`DEMO STEPS / ${step} OF ${mazeRoute.length-1}<br>STATE / ${step===mazeRoute.length-1?'GOAL REACHED':mazeRunning?'NAVIGATING':step?'PAUSED':'READY'}`;
+    mazeButton.dataset.step=String(step);mazeButton.dataset.total=String(mazeRoute.length-1);
+  }
+  const response = t => t < 0 ? 0 : Math.exp(-6*t)*(Math.cos(58*t)+.16*Math.sin(113*t));
+  function updateTrace(elapsed=1.4){
+    if(!capturedSamples)return;
+    const shown=capturedSamples.filter(s=>s.t<=elapsed);
+    document.querySelector('#impact-trace').setAttribute('d',shown.map((s,i)=>`${i?'L':'M'}${(12+(s.t+.2)/1.6*576).toFixed(2)},${(47-s.v*32).toFixed(2)}`).join(' '));
+    const peak=Math.max(...shown.map(s=>Math.abs(s.v)));
+    document.querySelector('#impact-peak').textContent=`Peak ${peak.toFixed(2)} a.u.`;
+    impactPanel.dataset.peak=peak.toFixed(3);
+  }
+  function capture(){
+    captures++;
+    capturedSamples=Array.from({length:321},(_,i)=>{const t=(i-40)/200;return {t,v:response(t)};});
+    document.querySelector('#impact-count').textContent=`${captures} ${captures===1?'capture':'captures'}`;
+    impactPanel.dataset.captures=String(captures);
+    impactStatus.textContent='Impact detected · recording';
+    document.querySelector('#impact-signal').setAttribute('aria-label',`Simulated vibration capture ${captures}: an impact spike followed by a damped oscillation, in arbitrary units.`);
+  }
+  function updateImpact(time){
+    if(!impact)return;
+    const age=time-impact.start;
+    if(age<420)hammerAngle=-1.75+(contactAngle+1.75)*(age/420)**2;
+    else if(age<620)hammerAngle=contactAngle-.23*Math.sin((age-420)/200*Math.PI/2);
+    else hammerAngle=contactAngle-.23+(-1.75-contactAngle+.23)*Math.min(1,(age-620)/500);
+    if(age>=420&&!impact.hit){impact.hit=true;capture();}
+    if(impact.hit)updateTrace(Math.min(1.4,(age-420)/1000));
+    if(age>=1820){impact=null;hammerAngle=-1.75;strikeButton.disabled=false;strikeButton.textContent='↓ Strike & record';impactStatus.textContent='Capture saved · ready for another strike';}
+  }
   const C = { lime: '#cdf568', steel: '#637666', light: '#bac6b5', dark: '#25372b', tire: '#27332b', copper: '#9dba78' };
   const add = (a,b) => a.map((x,i)=>x+b[i]);
   const sub = (a,b) => a.map((x,i)=>x-b[i]);
@@ -73,19 +125,40 @@
     }));
     label('VJTI RACING / ELECTRIC ATV',[-1.4,1.35,0]);
   }
-  function chip(){
-    box([0,-.3,0],[2.4,.08,1.7],'#2d513b');
-    box([-.1,-.15,0],[.65,.2,.65],C.dark);
-    for(let i=0;i<8;i++){
-      const x=-.37+i*.08;
-      [-1,1].forEach(s=>{tube([x,-.14,s*.34],[x,-.26,s*.45],.013,C.light,5);line([[x,-.25,s*.47],[x,-.25,s*.63],[s*1.05,-.25,s*.63]],'#b3cf77',1);});
+  function impactRig(){
+    const ringing=impact?.hit?(performance.now()-impact.start-420)/1000:2;
+    const vibration=ringing>=0&&ringing<1.4?.035*Math.exp(-5*ringing)*Math.sin(65*ringing):0;
+    const plateY=-.35+vibration;
+    box([-.35,plateY,0],[2,.09,1.05],C.light);
+    [-1.12,.42].forEach(x=>[-.38,.38].forEach(z=>box([x,-.78,z],[.1,.78,.1],C.dark)));
+    box([.94,-.04,-.42],[.17,2.15,.17],C.steel);
+    box([.94,-1.1,-.42],[.55,.1,.65],C.dark);
+    tube([.94,1.02,-.42],[.65,1.02,0],.06,C.steel);
+    const pivot=[.65,1.02,0];
+    const head=add(pivot,[Math.sin(hammerAngle)*1.25,-Math.cos(hammerAngle)*1.25,0]);
+    tube(pivot,head,.037,C.copper,10);
+    const start=faces.length;
+    box(head,[.52,.26,.3],C.steel);
+    faces.slice(start).forEach(f=>f.points=f.points.map(p=>{const q=sub(p,head);return add(head,[q[0]*Math.cos(hammerAngle)-q[1]*Math.sin(hammerAngle),q[0]*Math.sin(hammerAngle)+q[1]*Math.cos(hammerAngle),q[2]]);}));
+    tube([.65,1.02,-.09],[.65,1.02,.09],.085,C.lime,12);
+    const sensor=[-.82,plateY+.11,.2];
+    box(sensor,[.18,.14,.18],C.lime);
+    box([1.16,-.78,.48],[.48,.09,.38],'#2d513b');
+    box([1.16,-.68,.48],[.17,.12,.16],C.dark);
+    const cable=[add(sensor,[0,0,.09]),[-.82,plateY+.08,.68],[.78,-.65,.68],[1.16,-.7,.48]];
+    line(cable,C.lime,1.6);
+    if(impact?.hit&&ringing<1.4){
+      const t=(ringing*2.5)%1,section=Math.min(2,Math.floor(t*3)),f=t*3-section;
+      const p=add(cable[section],mul(sub(cable[section+1],cable[section]),f));
+      box(p,[.07,.07,.07],C.lime);
+      for(let k=1;k<4;k++){
+        const r=.13+k*.13+ringing*.06;
+        const pts=Array.from({length:33},(_,i)=>[.02+r*Math.cos(i*Math.PI/16),plateY+.055,r*Math.sin(i*Math.PI/16)]);
+        line(pts,'#9fbe72',Math.max(.4,1.7-ringing));
+      }
     }
-    box([.79,-.14,.02],[.3,.22,.5],C.light);
-    box([-.86,-.18,.4],[.18,.12,.2],C.copper);
-    for(let i=0;i<5;i++)box([-.8+i*.24,-.19,-.66],[.1,.14,.1],C.light);
-    const pts=Array.from({length:90},(_,i)=>{const t=i/89;return [-1.1+2.2*t,.4+Math.sin(t*9+value/20)*(.12+value/180),.25];});
-    line(pts,C.lime,2.5);line([[-1.12,.4,.25],[1.15,.4,.25]],'#4c6744',1);
-    label('IMU → FILTER → DTW → STATE',[-1.12,.9,0]);label('STM32 / I²C',[-.7,-.7,0]);
+    label('ACCELEROMETER',[-1.4,-.05,.2]);
+    label('SENSOR → ACQUISITION',[.1,-1.13,.45]);
   }
   function tentacle(){
     if(tentacleGeometry){
@@ -110,15 +183,37 @@
     label('TENDON ROUTING',[-1.08,-.3,0]);
   }
   function graph(){
-    const nodes=[];
-    for(let r=0;r<5;r++)for(let c=0;c<6;c++)nodes.push([-1.3+c*.52,-.55,r*.4-.8]);
-    nodes.forEach((p,i)=>{if((i+1)%6)line([p,nodes[i+1]],'#567048',1);if(i<24)line([p,nodes[i+6]],'#567048',1);box(p,[.065,.07,.065],C.steel);});
-    const route=[24,18,12,13,14,8,9,10,4,5];
-    line(route.map(i=>add(nodes[i],[0,.05,0])),C.lime,3);
-    const index=Math.min(route.length-1,Math.floor((value+45)/90*route.length));const p=nodes[route[index]];
-    box(add(p,[0,.17,0]),[.22,.2,.22],C.lime);
-    label('LOCALIZE → PLAN → ACT',[-1.3,.75,0]);
-    label('ILLUSTRATIVE TOPOLOGICAL ROUTE',[-1.3,-1.0,0]);
+    const cellPos=cell=>[(cell[1]-4)*.34,-.95,(cell[0]-3.5)*.34];
+    const current=Math.min(mazeRoute.length-1,Math.floor(mazeProgress)),fraction=mazeProgress-current;
+    const a=cellPos(mazeRoute[current]),b=cellPos(mazeRoute[Math.min(current+1,mazeRoute.length-1)]);
+    const p=add(a,mul(sub(b,a),fraction));
+    box([0,-1.02,0],[3.2,.1,2.9],C.dark);
+    mazeGrid.forEach((row,r)=>[...row].forEach((wall,c)=>{
+      const point=cellPos([r,c]);
+      const seen=mazeRoute.slice(0,current+1).some(q=>Math.abs(q[0]-r)+Math.abs(q[1]-c)<=2);
+      if(wall==='1')box(add(point,[0,seen?.23:.06,0]),[.33,seen?.45:.1,.33],seen?'#71826b':'#344331');
+      else if(seen)box(add(point,[0,.015,0]),[.31,.025,.31],'#405137');
+    }));
+    const traveled=mazeRoute.slice(0,current+1).map(cellPos).map(p=>add(p,[0,.065,0]));traveled.push(add(p,[0,.065,0]));
+    line(traveled,C.lime,2);
+    mazeRoute.slice(0,current+1).forEach(c=>{const q=cellPos(c);tube(add(q,[0,.04,0]),add(q,[0,.055,0]),.025,C.lime,8);});
+    tube(add(p,[0,.05,0]),add(p,[0,.21,0]),.11,C.lime,18);
+    const direction=unit(sub(b,a));
+    box(add(p,add([0,.18,0],mul(direction,.11))),[.065,.055,.065],C.dark);
+    const goal=cellPos(mazeGoal);tube(add(goal,[0,.03,0]),add(goal,[0,.5,0]),.012,C.light,6);
+    face([add(goal,[0,.5,0]),add(goal,[.19,.43,0]),add(goal,[0,.35,0])],C.lime);
+    label('START',add(cellPos(mazeStart),[-.2,.1,-.22]));label('IMAGE GOAL',add(goal,[-.2,.67,0]));
+    if(current<mazeRoute.length-1){
+      const angle=Math.atan2(direction[2],direction[0]);
+      for(let i=-2;i<=2;i++){
+        const theta=angle+i*.19;let end=p;
+        for(let d=.04;d<.8;d+=.04){
+          const q=add(p,[Math.cos(theta)*d,0,Math.sin(theta)*d]),r=Math.round(q[2]/.34+3.5),c=Math.round(q[0]/.34+4);
+          if(mazeGrid[r]?.[c]!=='0')break;end=q;
+        }
+        line([add(p,[0,.14,0]),add(end,[0,.14,0])],'#9dc97b',.8);
+      }
+    }
   }
   function project(p){
     const x=p[0]*Math.cos(yaw)+p[2]*Math.sin(yaw),z=-p[0]*Math.sin(yaw)+p[2]*Math.cos(yaw);
@@ -130,7 +225,7 @@
   function draw(){
     faces=[];lines=[];labels=[];ctx.clearRect(0,0,width,height);
     for(let i=-4;i<=4;i++){line([[i*.45,-1.15,-1.8],[i*.45,-1.15,1.8]],'#45603b',.4);line([[-1.8,-1.15,i*.45],[1.8,-1.15,i*.45]],'#45603b',.4);}
-    if(mode==='mechanical')atv();else if(mode==='embedded')chip();else if(mode==='simulation')tentacle();else if(mode==='ml')graph();else arm();
+    if(mode==='mechanical')atv();else if(mode==='embedded')impactRig();else if(mode==='simulation')tentacle();else if(mode==='ml')graph();else arm();
     if(mode==='all'||mode==='robotics'){
       faces.forEach(f=>f.points=f.points.map(p=>add(p,[-.65,.3,0])));
       lines.slice(18).forEach(l=>l.points=l.points.map(p=>add(p,[-.65,.3,0])));
@@ -142,8 +237,8 @@
     lines.forEach(l=>{ctx.beginPath();l.points.map(project).forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.strokeStyle=l.color;ctx.lineWidth=l.weight;ctx.stroke();});
     labels.forEach(l=>{const p=project(l.p);ctx.fillStyle=l.color;ctx.font='8px monospace';ctx.fillText(l.text,p[0],p[1]);});
   }
-  function tick(time){frame=0;if(!rotating||!visible||document.hidden)return;const dt=Math.min(50,time-(lastTime||time));lastTime=time;yaw+=dt*.00016;draw();frame=requestAnimationFrame(tick);}
-  function schedule(){if(rotating&&visible&&!document.hidden&&!frame){lastTime=0;frame=requestAnimationFrame(tick);}}
+  function tick(time){frame=0;if((!rotating&&!impact&&!mazeRunning)||!visible||document.hidden)return;const dt=Math.min(50,time-(lastTime||time));lastTime=time;if(rotating)yaw+=dt*.00016;updateImpact(time);if(mazeRunning){mazeProgress=Math.min(mazeRoute.length-1,mazeProgress+dt*.0023);if(mazeProgress>=mazeRoute.length-1){mazeRunning=false;mazeButton.textContent='↻ Run again';mazeButton.setAttribute('aria-pressed','false');}mazeReadout();}draw();if(rotating||impact||mazeRunning)frame=requestAnimationFrame(tick);}
+  function schedule(){if((rotating||impact||mazeRunning)&&visible&&!document.hidden&&!frame){lastTime=0;frame=requestAnimationFrame(tick);}}
   function resize(){const rect=canvas.getBoundingClientRect();width=rect.width;height=rect.height;const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
   new ResizeObserver(resize).observe(canvas);
   new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule();},{threshold:.05}).observe(canvas);
@@ -155,9 +250,28 @@
   document.querySelector('#rotate-toggle').addEventListener('click',e=>{rotating=!rotating;e.currentTarget.setAttribute('aria-pressed',String(rotating));e.currentTarget.textContent=rotating?'Ⅱ Pause rotation':'↻ Auto-rotate';schedule();});
   document.querySelector('#reset-view').addEventListener('click',()=>{yaw=-.65;pitch=.35;zoom=1;draw();});
   document.querySelector('#system-input').addEventListener('input',e=>{value=Number(e.target.value);document.querySelector('#system-output').textContent=value+'°';draw();});
+  strikeButton.addEventListener('click',()=>{
+    if(mode!=='embedded'||impact)return;
+    if(reduceMotion.matches){capture();updateTrace();impactStatus.textContent='Capture saved · reduced-motion view';hammerAngle=-1.75;draw();return;}
+    impact={start:performance.now(),hit:false};strikeButton.disabled=true;strikeButton.textContent='Recording…';impactStatus.textContent='Armed · hammer approaching';schedule();
+  });
+  mazeButton.addEventListener('click',()=>{
+    if(mode!=='ml')return;
+    if(reduceMotion.matches){mazeProgress=mazeRoute.length-1;mazeRunning=false;mazeButton.textContent='↻ Run again';mazeReadout();draw();return;}
+    if(mazeProgress>=mazeRoute.length-1)mazeProgress=0;
+    mazeRunning=!mazeRunning;mazeButton.setAttribute('aria-pressed',String(mazeRunning));mazeButton.textContent=mazeRunning?'Ⅱ Pause route':'▶ Run route';mazeReadout();draw();schedule();
+  });
+  mazeReset.addEventListener('click',()=>{mazeProgress=0;mazeRunning=false;mazeButton.textContent='▶ Run route';mazeButton.setAttribute('aria-pressed','false');mazeReadout();draw();});
   reduceMotion.addEventListener('change',()=>{if(reduceMotion.matches&&rotating)document.querySelector('#rotate-toggle').click();});
   window.setWorkbenchMode=track=>{
-    mode=track;yaw=track==='embedded'?-.4:-.65;pitch=track==='embedded'?.62:.35;zoom=1;draw();
+    if(track!==mode&&impact){impact=null;hammerAngle=-1.75;strikeButton.disabled=false;strikeButton.textContent='↓ Strike & record';if(capturedSamples){updateTrace();impactStatus.textContent='Capture saved · ready for another strike';}else impactStatus.textContent='Press Strike & record';}
+    if(track!=='ml')mazeRunning=false;
+    mode=track;yaw=track==='embedded'?-.45:track==='ml'?-.45:-.65;pitch=track==='embedded'?.28:track==='ml'?.72:.35;zoom=1;
+    impactPanel.hidden=track!=='embedded';strikeButton.hidden=track!=='embedded';document.querySelector('#system-input').closest('label').hidden=track==='embedded'||track==='ml';
+    mazeButton.hidden=track!=='ml';mazeReset.hidden=track!=='ml';document.querySelector('#rotate-toggle').hidden=track==='ml';
+    if(track==='ml'){mazeButton.textContent='▶ Run route';mazeButton.setAttribute('aria-pressed','false');mazeReadout();}
+    canvas.setAttribute('aria-label',track==='embedded'?'Interactive 3D impact-sensing rig: hammer, plate, accelerometer and wired acquisition board. Press Strike and record to capture an illustrative vibration response.':'Interactive 3D engineering illustration. Use the rotation and view controls below.');
+    draw();
     if(track==='simulation'){
       if(!geometryPromise)geometryPromise=fetch('assets/tentacle-geometry.json').then(r=>{if(!r.ok)throw Error('Geometry unavailable');return r.json();}).then(g=>{tentacleGeometry=g;return g;}).catch(()=>null);
       geometryPromise.then(g=>{if(g&&mode==='simulation'){document.querySelector('#bench-caption').textContent='Original CAD-derived meshes · Interactive articulation; not executed MuJoCo or calibrated material physics';draw();}});

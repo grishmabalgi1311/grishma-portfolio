@@ -27,7 +27,7 @@ Use `?track=mechanical`, `?track=embedded`, `?track=robotics`, `?track=simulatio
 
 ## Evidence and interactions
 
-The ATV workbench is a simplified reconstruction from original team CAD views, not the manufacturing assembly. The tentacle workbench renders original CAD-derived segment meshes with illustrative articulation; it does not execute MuJoCo or validate material behavior. The board, robot-arm and navigation views are explanatory illustrations. The gesture time-warp demonstration illustrates timing variation and is not a recognition benchmark.
+The ATV workbench is a simplified reconstruction from original team CAD views, not the manufacturing assembly. The tentacle workbench renders original CAD-derived segment meshes with illustrative articulation; it does not execute MuJoCo or validate material behavior. The impact rig and robot-arm are explanatory illustrations. The maze is an original, interactive toy navigation demonstration inspired by the AI4CE course introduction. The gesture time-warp demonstration illustrates timing variation and is not a recognition benchmark.
 
 The navigation comparison is 2,451 to 1,418 executed ticks (42.1% fewer), 6/10 to 7/10, and SPL 0.358 to 0.619 in preserved midterm evaluations. The 718-step, 10/10 result is a separate saved evaluation. Neither establishes general success across environments. Circuit-breaker accuracy is explicitly synthetic-data performance. Unfinished integrations, team contributions and calibration needs remain identified.
 
@@ -38,3 +38,15 @@ Semantic navigation, visible focus, native dialogs with Escape and restored focu
 ## Validation
 
 JavaScript syntax, local resource checks and isolated Chromium interaction tests cover discipline selection, searching, project dialogs, keyboard dismissal, workbench controls, deep links and responsive widths from 320 to 1440 pixels. This validates the website experience; it does not establish new simulator or hardware results.
+
+## Impact sensing and maze interaction
+
+The embedded view replaces its slider with **Strike & record**: a hammer strikes an instrumented plate and captures a synthetic damped vibration response, in arbitrary units. It supports repeated and keyboard-triggered captures and an immediate reduced-motion view. This is an explanatory interaction, not a measured hardware trace.
+
+The perception view provides **Run route**, pause, and reset controls for an original 3D toy maze. A small robot moves toward an image-goal marker while visited areas and the route become visible. It is not a replay or benchmark of the submitted navigation policy. No AI4CE code or textures are copied.
+
+## Project media and recognition
+
+All 14 cards have project-specific imagery and framing. Five case studies include silent, compressed original demo excerpts, loaded on demand and paused when the dialog closes. Concept images for the fin rig, finger mechanism, road scenario, ECG pipeline and breaker sensing are visibly labeled **AI concept**. Actual CAD, prototype footage, model visualizations and experimental results retain their separate provenance. See `ASSET_PROVENANCE.json` and `IMAGE_PROMPTS.json`.
+
+Recognition includes the Allianz Tech Championship win for the EcoSteps FlutterFlow prototype and the EUR 3,000 award confirmed by Grishma, plus explicitly labeled VJTI Racing team awards from the CV. Dates, production deployment and user-impact metrics are not inferred for EcoSteps. See `RECOGNITION_PROVENANCE.json`.

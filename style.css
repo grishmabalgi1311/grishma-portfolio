@@ -10,3 +10,37 @@
 #system-canvas{position:absolute;top:120px;height:calc(100% - 205px)}
 
 @media(max-width:760px){.hero{display:flex;flex-direction:column}.hero-top{order:0}.hero-grid{display:contents}.hero-copy{order:1;padding-top:35px}.track-panel{order:2;margin-top:26px}.workbench{order:3;margin:20px 0 28px}}
+
+/* Embedded workbench: physical impact and a captured sensor response. */
+html[data-track=embedded] .workbench{height:640px}
+html[data-track=embedded] #system-canvas{top:115px;height:calc(100% - 335px)}
+html[data-track=embedded] .bench-overlay{bottom:235px}
+.impact-panel{position:absolute;left:20px;right:20px;bottom:93px;height:127px;border:1px solid #536647;border-radius:4px;background:#131d15;padding:9px 12px}
+.impact-meta,.impact-values{display:flex;align-items:center;justify-content:space-between;gap:10px;font:8px/1.5 monospace;color:#9cb58a}
+.impact-meta{letter-spacing:.05em}.impact-meta output{color:#d5edb9;white-space:nowrap}
+.impact-panel svg{display:block;width:100%;height:82px}.impact-values output{color:#cdf568;white-space:nowrap}.impact-values>span{text-align:right;font:8px/1.4 var(--body)}
+#strike-record{background:var(--lime);color:var(--ink);border-color:var(--lime);margin-left:auto;font-weight:600;padding:9px 12px}
+#strike-record:hover{background:#e0ffab;color:var(--ink)}#strike-record:disabled{cursor:wait;opacity:.7}
+@media(max-width:460px){html[data-track=embedded] .workbench{height:580px}.impact-panel{left:13px;right:13px;padding:9px 8px}.impact-meta{font-size:7px}.impact-values{font-size:8px}.impact-values>span{font-size:7px}#strike-record{padding:8px;font-size:9px}}
+
+#maze-run{background:var(--lime);color:var(--ink);border-color:var(--lime);margin-left:auto;font-weight:600}
+html[data-track=ml] #system-canvas{top:115px;height:calc(100% - 190px)}
+html[data-track=ml] .bench-overlay{bottom:91px}
+@media(max-width:460px){html[data-track=ml] .bench-caption{font-size:7px;padding:0 10px}#maze-run,#maze-reset{font-size:9px;padding:7px}}
+
+/* Project imagery: each source gets deliberate framing, rather than generic placeholders. */
+.project-visual{height:340px}.project-visual>img{mix-blend-mode:normal}
+.media-concept>img{padding:0;object-fit:cover}.media-photo>img{padding:0;object-fit:cover}.media-render>img{padding:0;object-fit:contain;background:#172219}
+.media-label{position:absolute;top:15px;right:16px;background:#f5f5e8e8;color:#394c30;padding:4px 7px;border-radius:2px;font:8px/1.4 var(--body);letter-spacing:.06em;z-index:1}
+.media-concept .visual-index,.media-photo .visual-index{background:#f5f5e8df;padding:3px 6px;border-radius:2px}
+.crop-atv>img{padding:0;object-fit:contain;transform:scale(1.24)}.crop-atv:hover>img{transform:scale(1.28)}
+.crop-board>img{object-position:50% 53%;transform:scale(1.18)}.crop-board:hover>img{transform:scale(1.22)}
+.crop-baymax>img{object-position:15% 80%;transform:scale(1.85);transform-origin:13% 74%}.crop-baymax:hover>img{transform:scale(1.9)}
+.crop-flexi>img{object-position:50% 55%;transform:scale(1.08)}.crop-flexi:hover>img{transform:scale(1.12)}
+.crop-analysis>img,.crop-manufacturing>img{padding:0;object-fit:contain;transform:scale(1.13)}.crop-analysis:hover>img,.crop-manufacturing:hover>img{transform:scale(1.17)}
+.media-note{font-size:10px;color:#718163;margin:8px 0 22px}.case-video{margin:24px 0}.case-video video{display:block;max-height:480px;width:100%;background:#152019;border-radius:5px}.case-video figcaption{font-size:10px;color:#6d7b60;line-height:1.7;margin-top:10px}
+.recognition-strip{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:24px;padding:26px 5%;border-bottom:1px solid var(--line);background:#e9eddf}.recognition-strip article{border-left:2px solid #94ad6d;padding-left:14px}.recognition-strip strong{font:500 24px/1.2 var(--display);letter-spacing:-.04em;display:block}.recognition-strip span{font-size:11px;display:block;margin-top:7px}.recognition-strip small{font-size:10px;color:#71815e;display:block;margin-top:3px}
+@media(max-width:1100px){.project-visual{height:290px}}@media(max-width:760px){.project-visual{height:240px}.recognition-strip{grid-template-columns:1fr;gap:18px}.recognition-strip strong{font-size:21px}.media-label{font-size:7px;right:10px;top:12px}.visual-index{font-size:8px;left:10px;top:12px}}
+@media(max-width:460px){.project-visual{height:285px}.crop-atv>img{transform:scale(1.16)}.crop-atv:hover>img{transform:scale(1.2)}}
+
+.media-concept>img{object-fit:contain;padding:7px;background:#fbf1e5}.crop-atv>img{transform:scale(1.07)}.crop-atv:hover>img{transform:scale(1.1)}@media(max-width:460px){.crop-atv>img{transform:scale(1.03)}.crop-atv:hover>img{transform:scale(1.06)}}
