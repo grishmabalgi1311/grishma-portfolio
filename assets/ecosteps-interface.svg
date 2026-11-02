@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" role="img" aria-label="EcoSteps: explanatory diagram">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#dfe3d4" stroke-width="1"/></pattern><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#789354"/></marker></defs>
+<rect width="1000" height="660" fill="#f1f1e7"/><rect x="25" y="25" width="950" height="610" rx="14" fill="url(#g)"/>
+<g font-family="Arial,sans-serif" fill="#293d31"><text x="60" y="82" font-size="28">EcoSteps</text><text x="60" y="113" font-size="15" fill="#73816c">Award-winning FlutterFlow UI/UX prototype</text>
+<g stroke="#3c5543" stroke-width="4" stroke-linejoin="round">
+<rect x="365" y="155" width="260" height="390" rx="29" fill="#293d31"/><rect x="380" y="176" width="230" height="345" rx="17" fill="#f5f5e9" stroke="none"/>
+<g stroke="none"><text x="408" y="224" font-size="22">EcoSteps</text><text x="408" y="253" font-size="12" fill="#73816c">Daily activity · carbon footprint</text></g>
+<circle cx="495" cy="327" r="49" fill="none" stroke="#d8dfc9" stroke-width="17"/><path d="M495 278A49 49 0 1 1 449 344" fill="none" stroke="#789354" stroke-width="17"/>
+<rect x="407" y="402" width="176" height="36" rx="8" fill="#d8e3c6" stroke="none"/><rect x="407" y="455" width="176" height="36" rx="8" fill="#e4e8d9" stroke="none"/>
+<g stroke="none" font-size="15"><text x="424" y="426">Travel &amp; transport</text><text x="424" y="479">Everyday activities</text><text x="80" y="290">ALLIANZ TECH</text><text x="80" y="320">CHAMPIONSHIP</text><text x="80" y="360" font-size="26">€3,000 award</text><text x="690" y="310">UI / UX</text><text x="690" y="342">FlutterFlow</text><text x="690" y="380" font-size="13">Concept interface shown</text></g></g>
+<text x="60" y="605" font-size="13" letter-spacing="2" fill="#73816c">EXPLANATORY DIAGRAM / NOT ORIGINAL CAD OR TEST DATA</text></g></svg>

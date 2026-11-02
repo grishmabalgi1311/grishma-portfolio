@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" role="img" aria-label="Circuit-breaker reduced-order modeling: explanatory diagram">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#dfe3d4" stroke-width="1"/></pattern><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#789354"/></marker></defs>
+<rect width="1000" height="660" fill="#f1f1e7"/><rect x="25" y="25" width="950" height="610" rx="14" fill="url(#g)"/>
+<g font-family="Arial,sans-serif" fill="#293d31"><text x="60" y="82" font-size="28">Circuit-breaker reduced-order modeling</text><text x="60" y="113" font-size="15" fill="#73816c">CAE / digital twins / dynamic + thermal modeling</text>
+<g stroke="#3c5543" stroke-width="4" stroke-linejoin="round">
+<rect x="85" y="200" width="270" height="270" rx="12" fill="#dbe2ce"/><path d="M130 415V255H300V415Z M130 300H300M130 355H300M185 255V415M245 255V415" fill="none" stroke="#8ca575"/>
+<path d="M385 335H555" marker-end="url(#a)"/>
+<rect x="590" y="235" width="310" height="200" rx="12" fill="#293d31"/><path d="M615 365Q650 270 690 330T765 330T850 330" fill="none" stroke="#cdf568"/>
+<g stroke="none" font-size="18"><text x="105" y="512">DETAILED CAE MODEL</text><text x="420" y="300">REDUCE</text><text x="630" y="482">REDUCED-ORDER MODEL</text><text x="170" y="565">Faster model evaluation / accuracy requires independent validation</text></g></g>
+<text x="60" y="605" font-size="13" letter-spacing="2" fill="#73816c">EXPLANATORY DIAGRAM / NOT ORIGINAL CAD OR TEST DATA</text></g></svg>

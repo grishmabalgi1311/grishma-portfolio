@@ -10,5 +10,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check app.js && node --check project-data.js && node --check workbench.js
+      - run: node --check app.js && node --check cv-projects.js && node --check project-data.js && node --check workbench.js
       - run: python tools/validate_site.py

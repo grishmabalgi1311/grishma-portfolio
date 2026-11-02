@@ -1,0 +1,40 @@
+{
+  "source": "Undergraduate CV reviewed 2026-11-02; historical dates not treated as current.",
+  "projects": [
+    {
+      "id": "walle-balance-line",
+      "status": "CV-documented project",
+      "scope": "Documented in the undergraduate CV. Original firmware and a successful balancing demonstration have not been recovered; the diagram explains the intended system."
+    },
+    {
+      "id": "adaptive-recumbent-bicycle",
+      "status": "Undergraduate design study",
+      "scope": "The CV documents CAD and FEA work; original models, numerical results and a manufactured bicycle have not been recovered. No clinical or user-testing outcome is claimed."
+    },
+    {
+      "id": "sugarcane-juicer",
+      "status": "Undergraduate design study",
+      "scope": "CV-documented design study. Original CAD, load cases and efficiency measurements have not been recovered; no measured extraction improvement is claimed."
+    },
+    {
+      "id": "printing-defect-detection",
+      "status": "Research / prototype development",
+      "scope": "The CV describes literature review and algorithm development with prototype work still underway. A trained model, dataset, accuracy benchmark and completed inspection prototype have not been recovered."
+    },
+    {
+      "id": "ecosteps",
+      "status": "Award-winning UI/UX prototype",
+      "scope": "The CV documents the championship win and interface prototype. This concept diagram does not reproduce the original screens. A deployed app, verified emissions model and measured environmental impact are not claimed."
+    },
+    {
+      "id": "circuit-breaker-rom",
+      "status": "Schneider Electric internship",
+      "scope": "Professional work summarized from the CV. Employer models and datasets are not published. The CV describes a speed benefit, but no reproducible timing or accuracy benchmark is available here, so no numeric speedup is presented."
+    }
+  ],
+  "exclusions": [
+    "Self-BalanceRobot.pdf belongs to a Helwan University team and is not attributed to Grishma.",
+    "Private CV contact information and full CV are not republished.",
+    "No missing original code, performance metrics, CAD or photos fabricated."
+  ]
+}

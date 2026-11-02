@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" role="img" aria-label="Camera-only robot navigation: explanatory diagram">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#dfe3d4" stroke-width="1"/></pattern><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#789354"/></marker></defs>
+<rect width="1000" height="660" fill="#f1f1e7"/><rect x="25" y="25" width="950" height="610" rx="14" fill="url(#g)"/>
+<g font-family="Arial,sans-serif" fill="#293d31"><text x="60" y="82" font-size="28">Camera-only robot navigation</text><text x="60" y="113" font-size="15" fill="#73816c">See a place. Find a route. Verify arrival.</text>
+<g stroke="#3c5543" stroke-width="4" stroke-linejoin="round">
+<rect x="60" y="156" width="420" height="350" rx="12" fill="#20332b"/>
+<path d="M65 165L230 285V360L65 495M475 165L310 285V360L475 495M65 495L230 360H310L475 495" fill="none" stroke="#8caa78"/>
+<path d="M230 285H310V360H230Z" fill="#435d48" stroke="#a8bd8e"/>
+<rect x="325" y="257" width="70" height="150" fill="none" stroke="#cdf568" stroke-dasharray="8 6"/>
+<path d="M110 207H140M110 207V237M430 207H400M430 207V237M110 459H140M110 459V429M430 459H400M430 459V429" stroke="#cdf568" fill="none"/>
+<g stroke="none" fill="#d9e8c9" font-size="14"><text x="82" y="186">ILLUSTRATIVE RGB VIEW</text><text x="84" y="482">Place recognition → image alignment</text></g>
+<rect x="520" y="156" width="420" height="350" rx="12" fill="#e4e9d9" stroke="none"/>
+<path d="M570 436L570 255H670V346H775V218H888V436H775H670Z" fill="none" stroke="#b1bea0" stroke-width="18"/>
+<path d="M570 436V255H670V346H775V218H888" fill="none" stroke="#668746" stroke-width="5" marker-end="url(#a)"/>
+<g fill="#cdf568"><circle cx="570" cy="436" r="13"/><circle cx="570" cy="255" r="10"/><circle cx="670" cy="255" r="10"/><circle cx="670" cy="346" r="10"/><circle cx="775" cy="346" r="10"/><circle cx="775" cy="218" r="10"/><circle cx="888" cy="218" r="13"/></g>
+<g stroke="none" font-size="14"><text x="544" y="186">TOPOLOGICAL GRAPH</text><text x="544" y="482">Recognized places → planned route</text></g>
+<path d="M480 330H520" marker-end="url(#a)"/>
+<g stroke="none" font-size="17"><text x="60" y="550">RGB INPUT</text><text x="285" y="550">LOCALIZATION</text><text x="555" y="550">GRAPH PLANNING</text><text x="815" y="550">ARRIVAL</text></g></g>
+<text x="60" y="605" font-size="13" letter-spacing="2" fill="#73816c">EXPLANATORY DIAGRAM / NOT ORIGINAL CAD OR TEST DATA</text></g></svg>

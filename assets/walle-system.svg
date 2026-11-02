@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" role="img" aria-label="Wall-E · balance &amp; line following: explanatory diagram">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#dfe3d4" stroke-width="1"/></pattern><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#789354"/></marker></defs>
+<rect width="1000" height="660" fill="#f1f1e7"/><rect x="25" y="25" width="950" height="610" rx="14" fill="url(#g)"/>
+<g font-family="Arial,sans-serif" fill="#293d31"><text x="60" y="82" font-size="28">Wall-E · balance &amp; line following</text><text x="60" y="113" font-size="15" fill="#73816c">ESP32 / PWM / PID / line sensor array</text>
+<g stroke="#3c5543" stroke-width="4" stroke-linejoin="round">
+<path d="M90 475H900" stroke="#adb99f"/><path d="M115 505C280 505 270 535 430 535S650 505 880 505" stroke="#789354" stroke-dasharray="12 8" fill="none"/>
+<rect x="355" y="245" width="230" height="190" rx="16" fill="#d9e2ca"/><rect x="399" y="275" width="142" height="65" rx="6" fill="#263b31"/>
+<text x="424" y="314" fill="#cdf568" stroke="none" font-size="21">ESP32</text><circle cx="350" cy="433" r="43" fill="#3c5543"/><circle cx="590" cy="433" r="43" fill="#3c5543"/>
+<path d="M470 245V181M425 181H515"/><rect x="422" y="158" width="96" height="45" rx="5" fill="#edf0e4"/><path d="M470 220V465" stroke-dasharray="8 8" stroke="#9fb58a"/>
+<path d="M260 238Q300 170 363 157M658 157Q722 170 760 238" fill="none" marker-end="url(#a)"/>
+<g stroke="none" font-size="20"><text x="85" y="285">BALANCE</text><text x="85" y="315">PID → motor PWM</text><text x="695" y="365">FOLLOW</text><text x="695" y="395">Line sensor array</text><text x="400" y="570">CONTROL CONCEPT</text></g></g>
+<text x="60" y="605" font-size="13" letter-spacing="2" fill="#73816c">EXPLANATORY DIAGRAM / NOT ORIGINAL CAD OR TEST DATA</text></g></svg>

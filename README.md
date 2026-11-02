@@ -47,8 +47,16 @@ The perception view provides **Run route**, pause, and reset controls for an ori
 
 ## Project media and recognition
 
-All 14 cards have project-specific imagery and framing. Five case studies include silent, compressed original demo excerpts, loaded on demand and paused when the dialog closes. Concept images for the fin rig, finger mechanism, road scenario, ECG pipeline and breaker sensing are visibly labeled **AI concept**. Actual CAD, prototype footage, model visualizations and experimental results retain their separate provenance. See `ASSET_PROVENANCE.json` and `IMAGE_PROMPTS.json`.
+The original 14 cards have project-specific imagery and framing. Five case studies include silent, compressed original demo excerpts, loaded on demand and paused when the dialog closes. Concept images for the fin rig, finger mechanism, road scenario, ECG pipeline and breaker sensing are visibly labeled **AI concept**. Actual CAD, prototype footage, model visualizations and experimental results retain their separate provenance. See `ASSET_PROVENANCE.json` and `IMAGE_PROMPTS.json`.
 
 Recognition includes the Allianz Tech Championship win for the EcoSteps FlutterFlow prototype and the EUR 3,000 award confirmed by Grishma, plus explicitly labeled VJTI Racing team awards from the CV. Dates, production deployment and user-impact metrics are not inferred for EcoSteps. See `RECOGNITION_PROVENANCE.json`.
 
 Baymax and FlexiClimber thumbnails use reference-guided **AI reconstructions** of the original prototypes, visibly labeled. Original footage remains available in the case studies. Renderings preserve recognizable appearance but are not exact manufacturing records.
+
+## CV review and project-media revision
+
+The portfolio now has 20 project case studies: 14 curated artifact collections and six additional CV-documented summaries. New summaries cover Wall-E, adaptive recumbent bicycle design, sugarcane-juicer design, FDM defect detection, EcoSteps, and circuit-breaker reduced-order modeling. They distinguish CV-reported work from recovered source files and measured results. Full private CV and employer models are excluded. See `CV_PROJECT_PROVENANCE.json`.
+
+KinetiKey uses an AI board concept with original footage retained. The 360° Rotating Drilling Machine uses a CAD-guided AI visualization, plus the original report/CAD image. Camera-only Robot Navigation has an authored system diagram, an interactive four-stage explanation and a link to the toy-maze workbench. Preserved evaluation metrics are unchanged. New CV project diagrams explain mechanisms or interfaces; they are not original project geometry or test results.
+
+The revised portrait uses identity-preserving AI-assisted background and exposure cleanup of the original event photo. The original is retained outside the publication. Exact built-in ImageGen prompts for this revision are saved in `IMAGE_PROMPTS_V4.json`.

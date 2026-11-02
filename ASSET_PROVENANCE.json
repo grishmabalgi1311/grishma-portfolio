@@ -30,5 +30,15 @@
   "navigation-maze-v2.png": "Original browser-rendered toy maze inspired by AI4CE introduction; no AI4CE code, textures or score replay.",
   "tentacle-mesh-v2.png": "Original browser visualization using actual archived CAD-derived segment meshes, articulated illustratively.",
   "baymax-reconstruction-v3.webp": "Built-in ImageGen reconstruction guided by the original Baymax demo frame. Preserves recognizable boxy body, blue wheel, components and sensor mast, but is not a documentary photograph or precise manufacturing record. Original demo retained.",
-  "flexiclimber-reconstruction-v3.webp": "Built-in ImageGen reconstruction guided by original beam-climber footage. Preserves recognizable cyan/green frame, purple gear, yellow rack, clamping mechanisms and wiring. Not exact manufacturing geometry or proof of completed integration. Original demo retained."
+  "flexiclimber-reconstruction-v3.webp": "Built-in ImageGen reconstruction guided by original beam-climber footage. Preserves recognizable cyan/green frame, purple gear, yellow rack, clamping mechanisms and wiring. Not exact manufacturing geometry or proof of completed integration. Original demo retained.",
+  "kinetikey-board-v4.webp": "Built-in ImageGen explanatory STM32 board concept guided by actual footage. Board layout is illustrative, not exact hardware documentation. Original video retained.",
+  "drilling-machine-v4.webp": "Built-in ImageGen visualization based on original drilling support CAD. No drill spindle added; geometry is illustrative. Original report retained.",
+  "navigation-pipeline-v4.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
+  "walle-system.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
+  "adaptive-bicycle-system.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
+  "sugarcane-roller-system.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
+  "printing-defect-system.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
+  "ecosteps-interface.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
+  "reduced-order-system.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
+  "portrait-v4.webp": "Built-in ImageGen background/exposure cleanup of original event photo (profilephoto.jpg); requested preservation of face, glasses, smile, hair and clothing. Original retained. AI-assisted photo edit."
 }

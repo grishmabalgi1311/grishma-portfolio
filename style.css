@@ -46,3 +46,5 @@ html[data-track=ml] .bench-overlay{bottom:91px}
 .media-concept>img{object-fit:contain;padding:7px;background:#fbf1e5}.crop-atv>img{transform:scale(1.07)}.crop-atv:hover>img{transform:scale(1.1)}@media(max-width:460px){.crop-atv>img{transform:scale(1.03)}.crop-atv:hover>img{transform:scale(1.06)}}
 
 .media-reconstruction>img{padding:7px;object-fit:contain;background:#fbf1e5;mix-blend-mode:normal}.media-reconstruction .visual-index{background:#f5f5e8df;padding:3px 6px;border-radius:2px}
+
+.media-diagram>img,.media-cad-render>img{object-fit:contain;padding:6px;background:#f1f1e7;mix-blend-mode:normal}.media-cad-render>img{background:#fbf1e5}.nav-stages{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.nav-stages button{border:1px solid #718b60;border-radius:4px;padding:9px 12px;background:transparent;color:#d3dfc7;font:inherit;cursor:pointer}.nav-stages button[aria-pressed=true]{background:#cdf568;color:#20332b}.nav-stage-output{display:block;min-height:65px;line-height:1.7}.portrait-frame>img{object-position:50% 26%;filter:none}.hero-person img{object-position:50% 25%;filter:none}

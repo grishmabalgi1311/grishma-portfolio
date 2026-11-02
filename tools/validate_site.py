@@ -2,6 +2,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import json,re
+import xml.etree.ElementTree as ET
 
 root=Path(__file__).resolve().parents[1]
 class Links(HTMLParser):
@@ -16,11 +17,13 @@ for ref in parser.refs:
     if u.scheme or u.netloc or not u.path:continue
     p=(root/unquote(u.path)).resolve()
     if not p.is_relative_to(root) or not p.is_file():missing.append(ref)
-for script in ['app.js','project-data.js','workbench.js']:
+for script in ['app.js','project-data.js','cv-projects.js','workbench.js']:
     text=(root/script).read_text(encoding='utf-8')
     for ref in re.findall(r"['\"](assets/[^'\"<>]+\.(?:pdf|jpg|png|webp|json))['\"]",text):
         if not (root/ref).is_file():missing.append(ref)
 assert not missing,f'Missing local resources: {missing}'
+for svg in (root/'assets').glob('*.svg'):
+    ET.parse(svg)
 geometry=json.loads((root/'assets/tentacle-geometry.json').read_text())
 assert len(geometry['parts'])==18
 for part in geometry['parts']:
