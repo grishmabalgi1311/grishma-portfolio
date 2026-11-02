@@ -44,3 +44,5 @@ html[data-track=ml] .bench-overlay{bottom:91px}
 @media(max-width:460px){.project-visual{height:285px}.crop-atv>img{transform:scale(1.16)}.crop-atv:hover>img{transform:scale(1.2)}}
 
 .media-concept>img{object-fit:contain;padding:7px;background:#fbf1e5}.crop-atv>img{transform:scale(1.07)}.crop-atv:hover>img{transform:scale(1.1)}@media(max-width:460px){.crop-atv>img{transform:scale(1.03)}.crop-atv:hover>img{transform:scale(1.06)}}
+
+.media-reconstruction>img{padding:7px;object-fit:contain;background:#fbf1e5;mix-blend-mode:normal}.media-reconstruction .visual-index{background:#f5f5e8df;padding:3px 6px;border-radius:2px}

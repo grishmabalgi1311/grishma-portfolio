@@ -50,3 +50,5 @@ The perception view provides **Run route**, pause, and reset controls for an ori
 All 14 cards have project-specific imagery and framing. Five case studies include silent, compressed original demo excerpts, loaded on demand and paused when the dialog closes. Concept images for the fin rig, finger mechanism, road scenario, ECG pipeline and breaker sensing are visibly labeled **AI concept**. Actual CAD, prototype footage, model visualizations and experimental results retain their separate provenance. See `ASSET_PROVENANCE.json` and `IMAGE_PROMPTS.json`.
 
 Recognition includes the Allianz Tech Championship win for the EcoSteps FlutterFlow prototype and the EUR 3,000 award confirmed by Grishma, plus explicitly labeled VJTI Racing team awards from the CV. Dates, production deployment and user-impact metrics are not inferred for EcoSteps. See `RECOGNITION_PROVENANCE.json`.
+
+Baymax and FlexiClimber thumbnails use reference-guided **AI reconstructions** of the original prototypes, visibly labeled. Original footage remains available in the case studies. Renderings preserve recognizable appearance but are not exact manufacturing records.

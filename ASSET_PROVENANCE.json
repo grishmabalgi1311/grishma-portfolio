@@ -28,5 +28,7 @@
   "videos/finger-demo.mp4": "Silent compressed excerpt from original project footage: E2_DemoVideo_Group01_Single-DOFGestureControlledRoboticFinger.mp4, from 0 seconds for 10 seconds. Historical scope stated in the case study.",
   "ecg-concept-v2.webp": "Built-in ImageGen educational ECG-acquisition concept, not exact hardware or a clinical measurement.",
   "navigation-maze-v2.png": "Original browser-rendered toy maze inspired by AI4CE introduction; no AI4CE code, textures or score replay.",
-  "tentacle-mesh-v2.png": "Original browser visualization using actual archived CAD-derived segment meshes, articulated illustratively."
+  "tentacle-mesh-v2.png": "Original browser visualization using actual archived CAD-derived segment meshes, articulated illustratively.",
+  "baymax-reconstruction-v3.webp": "Built-in ImageGen reconstruction guided by the original Baymax demo frame. Preserves recognizable boxy body, blue wheel, components and sensor mast, but is not a documentary photograph or precise manufacturing record. Original demo retained.",
+  "flexiclimber-reconstruction-v3.webp": "Built-in ImageGen reconstruction guided by original beam-climber footage. Preserves recognizable cyan/green frame, purple gear, yellow rack, clamping mechanisms and wiring. Not exact manufacturing geometry or proof of completed integration. Original demo retained."
 }
