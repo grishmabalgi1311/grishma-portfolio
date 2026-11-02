@@ -1,0 +1,15 @@
+{
+  "portrait.webp": "Original GrishmaBalgi_Photo.jpg; resized and encoded, facial features unchanged.",
+  "atv-perspective.webp": "Original VJTI Racing student-team CAD view, Desktop/website.",
+  "atv-side.webp": "Original team CAD side view, Desktop/website.",
+  "atv-top.webp": "Original team CAD top view, Desktop/website.",
+  "atv-frame.webp": "Original team CAD frame perspective, Desktop/website.",
+  "tentacle-geometry.json": "Original OBJ segments and arm_reference.xml from the archived CAD-derived Prema Lab model. Browser articulation is illustrative.",
+  "tentacle-simulator.webp": "Saved image of the isolated MuJoCo pixel-water variant; not new physical evidence.",
+  "ur10e-kinematics.webp": "Frame from the original saved UR10e FK coursework GIF; supplied robot framework.",
+  "fin-gripper.webp": "Physical gripper photograph extracted from PremaLab_Automated Codesign report, page 6.",
+  "fin-fixture.webp": "Original fixture CAD image in the same report, page 7.",
+  "fault-acquisition.webp": "Original team acquisition-enclosure photograph in FINAL YEAR PROJECT report, page 59.",
+  "kiteboard-mesh.webp": "Original team Ansys mesh screenshot, Analysis of Composite Kiteboard Design, page 6.",
+  "kiteboard-analysis.webp": "Original team Ansys result screenshot, same report, page 8. Simulation only."
+}
