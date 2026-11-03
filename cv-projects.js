@@ -16,7 +16,7 @@ window.PORTFOLIO_PROJECTS.push(...[
       "Studied line-sensor arrays, PWM motor commands and PID control flow.",
       "Implemented startup text on an OLED interface."
     ],
-    "note": "Documented in the undergraduate CV. Original firmware and a successful balancing demonstration have not been recovered; the diagram explains the intended system.",
+    "note": "Documented in the undergraduate CV. Original firmware and a successful balancing demonstration have not been recovered; the concept illustration explains the intended system.",
     "next": "Recover the original design files and document reproducible verification.",
     "flow": "SENSE → CONTROL ERROR → PID / PWM → MOTOR RESPONSE",
     "stats": [
@@ -35,8 +35,8 @@ window.PORTFOLIO_PROJECTS.push(...[
     ],
     "metric": "ESP32 · PID + PWM · OLED",
     "art": "walle",
-    "image": "assets/walle-system.svg",
-    "mediaKind": "diagram",
+    "image": "assets/walle-concept-v5.webp",
+    "mediaKind": "concept",
     "cvDocumented": true
   },
   {
@@ -75,8 +75,8 @@ window.PORTFOLIO_PROJECTS.push(...[
     ],
     "metric": "SolidWorks · FEA · Ergonomics",
     "art": "adaptive",
-    "image": "assets/adaptive-bicycle-system.svg",
-    "mediaKind": "diagram",
+    "image": "assets/recumbent-concept-v5.webp",
+    "mediaKind": "concept",
     "cvDocumented": true
   },
   {
@@ -115,8 +115,8 @@ window.PORTFOLIO_PROJECTS.push(...[
     ],
     "metric": "Gears · Rollers · Ansys",
     "art": "sugarcane",
-    "image": "assets/sugarcane-roller-system.svg",
-    "mediaKind": "diagram",
+    "image": "assets/juicer-concept-v5.webp",
+    "mediaKind": "concept",
     "cvDocumented": true
   },
   {
@@ -154,8 +154,8 @@ window.PORTFOLIO_PROJECTS.push(...[
     ],
     "metric": "FDM · Vision + sensing · Research",
     "art": "printing",
-    "image": "assets/printing-defect-system.svg",
-    "mediaKind": "diagram",
+    "image": "assets/printing-defect-concept-v5.webp",
+    "mediaKind": "concept",
     "cvDocumented": true
   },
   {
@@ -172,7 +172,7 @@ window.PORTFOLIO_PROJECTS.push(...[
       "Designed daily-activity inputs and carbon-footprint calculation features.",
       "Won the Allianz Tech Championship; the €3,000 award amount was confirmed by Grishma."
     ],
-    "note": "The CV documents the championship win and interface prototype. This concept diagram does not reproduce the original screens. A deployed app, verified emissions model and measured environmental impact are not claimed.",
+    "note": "The CV documents the championship win and interface prototype. This concept illustration does not reproduce the original screens. A deployed app, verified emissions model and measured environmental impact are not claimed.",
     "next": "Recover the original design files and document reproducible verification.",
     "flow": "DAILY ACTIVITIES → INPUT FLOW → FOOTPRINT ESTIMATE → USER FEEDBACK",
     "stats": [
@@ -191,8 +191,8 @@ window.PORTFOLIO_PROJECTS.push(...[
     ],
     "metric": "Winner · €3,000 · FlutterFlow",
     "art": "ecosteps",
-    "image": "assets/ecosteps-interface.svg",
-    "mediaKind": "diagram",
+    "image": "assets/ecosteps-concept-v5.webp",
+    "mediaKind": "concept",
     "cvDocumented": true
   },
   {
@@ -231,8 +231,8 @@ window.PORTFOLIO_PROJECTS.push(...[
     ],
     "metric": "CAE · ROM · Thermal + dynamic",
     "art": "circuit",
-    "image": "assets/reduced-order-system.svg",
-    "mediaKind": "diagram",
+    "image": "assets/breaker-rom-concept-v5.webp",
+    "mediaKind": "concept",
     "cvDocumented": true
   }
 ]);

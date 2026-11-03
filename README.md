@@ -60,3 +60,7 @@ The portfolio now has 20 project case studies: 14 curated artifact collections a
 KinetiKey uses an AI board concept with original footage retained. The 360° Rotating Drilling Machine uses a CAD-guided AI visualization, plus the original report/CAD image. Camera-only Robot Navigation has an authored system diagram, an interactive four-stage explanation and a link to the toy-maze workbench. Preserved evaluation metrics are unchanged. New CV project diagrams explain mechanisms or interfaces; they are not original project geometry or test results.
 
 The revised portrait uses identity-preserving AI-assisted background and exposure cleanup of the original event photo. The original is retained outside the publication. Exact built-in ImageGen prompts for this revision are saved in `IMAGE_PROMPTS_V4.json`.
+
+## Revised CV-project covers
+
+All six CV-documented project covers now use project-specific, visibly labeled AI concept illustrations. These do not reconstruct missing original hardware, CAD or app screens. Their original authored diagrams remain archived as explanatory assets. Exact built-in ImageGen prompts are in `IMAGE_PROMPTS_V5.json`.

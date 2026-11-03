@@ -40,5 +40,11 @@
   "printing-defect-system.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
   "ecosteps-interface.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
   "reduced-order-system.svg": "Authored SVG system diagram. Illustrative topology / interface, not recovered project CAD, original UI, or measured data.",
-  "portrait-v4.webp": "Built-in ImageGen background/exposure cleanup of original event photo (profilephoto.jpg); requested preservation of face, glasses, smile, hair and clothing. Original retained. AI-assisted photo edit."
+  "portrait-v4.webp": "Built-in ImageGen background/exposure cleanup of original event photo (profilephoto.jpg); requested preservation of face, glasses, smile, hair and clothing. Original retained. AI-assisted photo edit.",
+  "walle-concept-v5.webp": "Built-in ImageGen concept illustration based on CV-described project purpose. Not an original prototype photo, recovered CAD, measured result, or original app screen. Exact prompt in IMAGE_PROMPTS_V5.json.",
+  "recumbent-concept-v5.webp": "Built-in ImageGen concept illustration based on CV-described project purpose. Not an original prototype photo, recovered CAD, measured result, or original app screen. Exact prompt in IMAGE_PROMPTS_V5.json.",
+  "juicer-concept-v5.webp": "Built-in ImageGen concept illustration based on CV-described project purpose. Not an original prototype photo, recovered CAD, measured result, or original app screen. Exact prompt in IMAGE_PROMPTS_V5.json.",
+  "printing-defect-concept-v5.webp": "Built-in ImageGen concept illustration based on CV-described project purpose. Not an original prototype photo, recovered CAD, measured result, or original app screen. Exact prompt in IMAGE_PROMPTS_V5.json.",
+  "ecosteps-concept-v5.webp": "Built-in ImageGen concept illustration based on CV-described project purpose. Not an original prototype photo, recovered CAD, measured result, or original app screen. Exact prompt in IMAGE_PROMPTS_V5.json.",
+  "breaker-rom-concept-v5.webp": "Built-in ImageGen concept illustration based on CV-described project purpose. Not an original prototype photo, recovered CAD, measured result, or original app screen. Exact prompt in IMAGE_PROMPTS_V5.json."
 }
